@@ -1,0 +1,89 @@
+ #container-asignacion{
+     position: relative;
+     margin:4.16% 4.16%;
+     .asignacion{
+         width: 95%;
+         height: auto;
+         .load{
+              .title{
+                  font-size: 26px !important;
+                  line-height: 22px;
+                  display: flex;
+                  color: #000000;
+                  margin: 0 0 30px 0 ;
+              }
+              .btn-load{
+                  color: #ffffff;
+                  left:50%;
+                  margin:-9% 0 0 1%;
+              }
+              .search{
+                 width:50%;
+              }
+              .filter{
+                 margin: -30px 0 30px 0 ;
+              }
+         }
+         .formularioLectura{
+              margin: 60px 0 0 0;
+             .title-form{
+                 font-size: 22px !important;
+                 line-height: 22px;
+                 display: flex;
+                 color: #000000;
+             }
+             .btn-add{
+                 color: #ffffff;
+             }
+             .grupoPer{
+                 font-size: 18px !important;
+                 line-height: 22px;
+                 display: flex;
+                 margin: 0 0 15px 0;
+                 font-weight: bold;
+             }
+
+         }
+         .formulario{
+            margin: 10px 0 0 0;
+            .title-form{
+              font-size: 22px !important;
+              line-height: 22px;
+              display: flex;
+              color: #000000;
+            }
+            .btn-add{
+              color: #ffffff;
+            }
+            .btn-buscar{
+              color: #ffffff;
+              margin:20px 0;
+            }
+            .solicitud{
+                font-size: 18px !important;
+                line-height: 22px;
+                display: flex;
+                margin: 0 0 5px 0;
+                font-weight: bold;
+            }
+            .A1primera{
+                font-size: 18px !important;
+                line-height: 22px;
+                display: flex;
+                margin: 25px 0 0 0;
+            }
+            .motivo{
+                font-size: 18px !important;
+                line-height: 22px;
+                display: flex;
+                margin: 0 0 5px 0;
+                font-weight: bold;
+            }
+
+         }
+         .TablesolicitudPendiente{
+         height:auto;
+         }
+     }
+
+ }

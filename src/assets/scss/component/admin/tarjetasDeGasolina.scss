@@ -1,0 +1,66 @@
+#container-Gasolina{
+    position: relative;
+    margin:4.16% 4.16%;
+    .Gasolina{
+        width: 95%;
+        height: auto;
+        .load{
+            .title{
+                font-size: 26px !important;
+                line-height: 22px;
+                display: flex;
+                color: #000000;
+                margin: 0 0 30px 0 ;
+            }
+            .btn-load{
+                color: #ffffff;
+            }
+            .btn-return{
+                 color: #ffffff;
+                 margin: 0 0 0 20px;
+            }
+        }
+        .load-seach{
+            .title{
+                font-size: 26px !important;
+                line-height: 22px;
+                display: flex;
+                color: #000000;
+                margin: 0 0 30px 0 ;
+            }
+            .btn-load{
+                color: #ffffff;
+                left:50%;
+                margin:-9% 0 0 1%;
+            }
+            .search{
+               width:50%;
+            }
+        }
+        .formulario{
+            .title-form{
+                font-size: 26px !important;
+                line-height: 22px;
+                display: flex;
+                color: #000000;
+                margin: 0 0 30px 0 ;
+            }
+            .btn-save{
+                margin: 50px 50px 50px 0 ;
+                color: #ffffff;
+            }
+            .btn-return{
+                 color: #ffffff;
+            }
+            .btn-add{
+                 color: #ffffff;
+            }
+        }
+
+        .divider-form{
+            margin: 3% 0;
+            background-color: #f50537;
+        }
+    }
+
+}
