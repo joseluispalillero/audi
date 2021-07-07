@@ -98,7 +98,8 @@
                <v-text-field  label="NIP"   required  :rules="NIPRules"   v-model="editedItem.nip" ></v-text-field>
              </v-col>
               <v-col cols="12"  sm="6"  md="4" v-if="updateV" >
-                <v-text-field  label="Número de empleado"   disabled   v-model="editedItem.nc" ></v-text-field>
+             <v-text-field  label="Número de empleado"   disabled   v-model="editedItem.nc" ></v-text-field>
+
               </v-col>
              <v-col cols="12"  sm="6"  md="4"  v-if="updateV" >
                <v-text-field  label="Responsable"   disabled  v-model="editedItem.nombre_usuario" ></v-text-field>
@@ -109,6 +110,10 @@
              <v-col cols="12"  sm="6"  md="4"  >
                 <v-autocomplete  label="Estatus" :items="itemEstatus"   item-text="valor" item-value="id"  required :rules="StatusRules" v-model="editedItem.estatus"  >  </v-autocomplete>
              </v-col>
+           <v-col cols="12"  sm="6"  md="4" v-if="alta" >
+                <v-autocomplete  label="NC" :items="itemUser"   item-text="nc" item-value="id_usuario"  required :rules="NCRules" v-model="editedItem.id_usuario"  >  </v-autocomplete>
+             </v-col>
+
              <v-col cols="12"  sm="6"  md="4"  >
                <v-autocomplete  label="Combustible" :items="itemCombustible"   item-text="valor" item-value="valor"  required :rules="CombustibleRules" v-model="editedItem.combustible"  >  </v-autocomplete>
              </v-col>
@@ -172,6 +177,9 @@
       ],
       itemFlotilla: [
          {text: 'placa' , value:'id_flotilla'},
+      ],
+      itemUser: [
+         {text: 'nc' , value:'id_usuario'},
       ],
       filter: '',
       CampoFilter: 'num_tarjeta',
@@ -262,6 +270,7 @@
     created () {
       //this.initialize()
       this.CatSistema()
+      this.Usuarios()
     },
     methods: {
       CargaDatosR : function () {
@@ -362,6 +371,17 @@
             console.error(error);
         }
       },
+      async Usuarios () {
+          const url = `https://y3a2p5cww7.execute-api.us-west-2.amazonaws.com/Prod/usuario`
+          try {
+              const response = await axios.get(url);
+              this.itemUser = response.data.result
+              console.log(response.data.result)
+
+          } catch (error) {
+              console.error(error);
+          }
+      },
       async CatSistema () {
 
           const url = `https://y3a2p5cww7.execute-api.us-west-2.amazonaws.com/Prod/catsystem`
@@ -456,6 +476,7 @@
            "combustible":this.editedItem.combustible,
            "idFlotilla":this.editedItem.id_flotilla,
            "estatus": 1,
+           "idUsuario": this.editedItem.id_usuario,
            "usuarioModif":"1"
           };
           const url = `https://y3a2p5cww7.execute-api.us-west-2.amazonaws.com/Prod/tarjetagasolina`
@@ -479,6 +500,8 @@
             hora  = fe.getHours() + ':' + fe.getMinutes() + ':' + fe.getSeconds();
             fecha = this.editedItem.fecha + ' ' + hora;
 
+           console.log('id usuario' , this.editedItem.id_usuario)
+
           let oUsuario= {
            "iut": this.editedItem.iut,
            "numTarjeta":this.editedItem.num_tarjeta,
@@ -491,6 +514,7 @@
            "combustible":this.editedItem.combustible,
            "idFlotilla":this.editedItem.id_flotilla,
            "estatus": 1,
+           "idUsuario": this.editedItem.id_usuario,
            "usuarioModif":"1"
             };
             const url = `https://y3a2p5cww7.execute-api.us-west-2.amazonaws.com/Prod/tarjetagasolina`

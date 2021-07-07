@@ -44,6 +44,9 @@
            <v-icon  small  class="mr-2" @click="editItem(item)" > mdi-pencil  </v-icon>
            <v-icon  small  @click="deleteItem(item)"   >  mdi-delete  </v-icon>
          </template>
+          <template v-slot:no-data>
+            <span>No se encontraron Datos</span>
+          </template>
        </v-data-table>
     </div>
 
