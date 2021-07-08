@@ -1,0 +1,20 @@
+#masterlist-baja{
+    position: relative;
+    margin:4.16% 4.16%;
+    .baja{
+        width: 95%;
+        height: auto;
+        .v-input--selection-controls .v-input__slot > .v-label, .v-input--selection-controls .v-radio > .v-label {
+          top: 5px;
+        }
+        .load{
+             
+             .btn-load{
+                 color: #ffffff;
+                 margin-top: 20px;
+             }
+            
+        }
+        
+    }
+}

@@ -1,21 +1,33 @@
 <template>
- <div id="container-Modificar">
-    <div class="Modificar">
-    <div class="load">
-         <v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
-         <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
-             <v-icon>mdi-magnify</v-icon>
-         </v-btn>
-         <v-checkbox class="checkHistorial" v-model="historial" label="Historial" ></v-checkbox>
-         <div class="filter">
-         <v-radio-group  v-model="CampoFilter"  row >
+ <div id="masterlist-modificar">
+    <div class="modificar">
+      <div class="load">
+        <v-row>
+          <v-col class="col-xs-12 col-sm-10 col-md-10" cols="12">
+            <v-row>
+              <v-col class="col-xs-10 col-sm-10 col-md-10" cols="10">
+                <v-text-field v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
+              </v-col>
+              <v-col class="col-xs-2 col-sm-2 col-md-2" cols="2">
+                <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
+                  <v-icon>mdi-magnify</v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col class="col-xs-12 col-sm-2 col-md-2" cols="12">
+            <v-checkbox class="checkHistorial" v-model="historial" label="Historial" ></v-checkbox>
+          </v-col>
+        </v-row>
+        <div class="filter">
+          <v-radio-group  v-model="CampoFilter"  row >
             <v-radio label="Vin" value="vin"></v-radio>
             <v-radio label="Placa" value="placa" true></v-radio>
             <v-radio label="Numero de empleado" value="nc" true></v-radio>
             <v-radio label="Nombre" value="nombre" ></v-radio>
-         </v-radio-group>
-         </div>
-    </div>
+          </v-radio-group>
+        </div>
+      </div>
     <div class="formulario">
       <v-data-table  :headers="headers" :items="desserts" :search="search" sort-by="vin"  class="elevation-1" >
          <template v-slot:item.fecha_avaluo="{ item }">

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="masterlist-detalle">
     <div>
       <v-data-table :headers="headers" :items="Datos" >
         <template v-slot:item.Descripcion="props">
