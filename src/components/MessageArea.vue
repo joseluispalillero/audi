@@ -1,7 +1,7 @@
 <template>
   <div id="bannerfooter">
     <div class="content">
-      <span class="white--text textmenu">{{ message }}</span>
+      <span class="white--text">{{ message }}</span>
     </div>
   </div>
 </template>

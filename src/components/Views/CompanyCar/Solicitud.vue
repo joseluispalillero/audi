@@ -40,8 +40,11 @@
           <v-col cols="4" >
             <v-text-field ref="licencia" v-model="licencia" :rules="licenciaRules" label="Número de licencia de conducir*" required outlined ></v-text-field>
           </v-col>
-          <v-col cols="4" >
-            <v-text-field label="Fecha de vencimiento de licencia de conducir*" required  :rules="dateFechaRules"   v-model="FechaVencimiento" outlined  prepend-icon="mdi-calendar"  readonly  @click="dialogFecha = true"  ></v-text-field>
+          <v-col cols="3" >
+            <v-text-field label="Fecha de vencimiento de licencia de conducir"  required :rules="dateFechaRules"   v-model="FechaVencimiento" outlined  prepend-icon="mdi-calendar"  readonly  @click="dialogFecha = true"  ></v-text-field>
+          </v-col>
+          <v-col cols="1" >
+             <v-checkbox label="Permanente" v-model="Permanente" v-on:click="DateLicencia" ></v-checkbox>
           </v-col>
           <v-col cols="12" >
              <span class="solicitud" >Solicitud de modelo</span>
@@ -112,13 +115,12 @@
       <v-dialog   ref="dialogFecha"   v-model="dialogFecha" :return-value.sync="FechaVencimiento" persistent  width="290px"  >
         <v-date-picker v-model="FechaVencimiento"  scrollable  >
           <v-spacer></v-spacer>
-          <v-btn  text color="primary"  @click="dialogFecha = false"  > Cancel </v-btn>
-          <v-btn text color="primary"  @click="$refs.dialogFecha.save(FechaVencimiento)"  >
+          <v-btn  text   @click="dialogFecha = false"  > Cancel </v-btn>
+          <v-btn text   @click="$refs.dialogFecha.save(FechaVencimiento)"  >
             OK
           </v-btn>
         </v-date-picker>
       </v-dialog>
-
     </div>
  </div>
 </template>
@@ -134,6 +136,7 @@
       mensaje:'Solicitud Realizada con éxito',
       condiciones:'',
       filter: '',
+      Permanente: false,
       CampoFilter: 'nc',
       search: '',
       Nempleado: '835579',
@@ -166,6 +169,14 @@
     registerUser () {
       console.log('envio de registro')
        alert(this.mensaje)
+    },
+    DateLicencia () {
+        if(this.Permanente ){
+            this.FechaVencimiento='9999-12-31'
+        }else{
+            this.FechaVencimiento=''
+        }
+
     },
     countDownChanged(dismissCountDown) {
       this.dismissCountDown = dismissCountDown

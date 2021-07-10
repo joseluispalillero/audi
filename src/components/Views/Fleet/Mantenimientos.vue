@@ -1,8 +1,15 @@
 <template>
     <div id="container-usuarios">
         <div class="usuarios">
+            <div class="formulario">
+                <v-row>
+                    <v-col cols="12" >
+                        <span class="solicitud">Búsqueda</span>
+                    </v-col>
+                </v-row>
+            </div>
             <div class="load">
-                <span class="title">Mantenimientos</span>
+<!--                <span class="title">Mantenimientos</span> -->
                 <v-text-field  class="search" v-model="filter"  label="Search"  outlined ></v-text-field>
                 <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach()" >
                     <v-icon>mdi-magnify</v-icon>
@@ -23,150 +30,8 @@
                         <span class="solicitud" >Histórico de mantenimientos</span>
                     </v-col>
                 </v-row>
-                <v-data-table
-                    :headers="headersHistMultas"
-                    :items="tablaHistMultas"
-                    :single-expand="singleExpand"
-                    :expanded.sync="expanded"
-                    :items-per-page="3" 
-                    item-key="vin"
-                    show-expand
-                    class="elevation-1"
-                >
+                <v-data-table :headers="headersHistMultas" :items="tablaHistMultas" item-key="vin" :items-per-page="3" class="elevation-1">
                     <template v-slot:top>
-                        <v-toolbar flat>
-                            <v-spacer></v-spacer>
-                            <v-switch
-                            v-model="singleExpand"
-                            class="mt-2"
-                            ></v-switch>
-                        </v-toolbar>
-                    </template>
-                    <template v-slot:expanded-item="{ headers, item }">
-                        <td :colspan="headers.length">
-                            <v-row>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        Fecha
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        {{item.fecha}}
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        Proveedor
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        {{item.proveedor}}
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        Concepto
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        {{item.concepto}}
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        Concepto
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        {{item.concepto}}
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        Tipo concepto
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        {{item.tipoConcepto}}
-                                    </v-card-text>
-                                </v-col>
-                                 <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        Cantidad
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        {{item.cantidad}}
-                                    </v-card-text>
-                                </v-col>
-                                 <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        Importe unitario
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        {{item.importUnit}}
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        Importe de materiales
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        {{item.importMat}}
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        Importe + IVA
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        {{item.importIva}}
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        Descripción mantenimiento
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        {{item.descMant}}
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        Tipo mantenimiento
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        {{item.tipMant}}
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        Usuario de modificación
-                                    </v-card-text>
-                                </v-col>
-                                <v-col  cols="16" sm="2"  md="2" >
-                                    <v-card-text>
-                                        {{item.usrMod}}
-                                    </v-card-text>
-                                </v-col>
-                            </v-row>
-                        </td>
                     </template>
                 </v-data-table>
             </div>

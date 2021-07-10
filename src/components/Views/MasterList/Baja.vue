@@ -1,5 +1,6 @@
 <template>
   <div id="masterlist-baja">
+    <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="baja">
       <div class="load">
         <v-row>
@@ -202,9 +203,25 @@
 <script>
 import axios from 'axios'
 import moment from 'moment'
+import NavigationInfo from '../NavigationInfo.vue'
 
 export default {
+  components: {NavigationInfo},
   data: () => ({
+    navigationInfo: [
+      {
+        text: 'Home',
+        disabled: true,
+      },
+      {
+        text: 'MasterList',
+        disabled: true,
+      },
+      {
+        text: 'Baja',
+        disabled: false
+      },
+    ],
     /* ==== combos ===== */
     Tipobaja: ['Terminación', 'Anticipada', 'Terminación normal'],
     Tipocierre: ['Compra', 'Devolución', 'Perdida total', 'Robo total', 'Scrap', 'Venta de activo'],

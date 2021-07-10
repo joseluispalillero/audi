@@ -1,8 +1,15 @@
 <template>
     <div id="container-usuarios">
         <div class="usuarios">
+            <div class="formulario">
+                <v-row>
+                    <v-col cols="12" >
+                        <span class="solicitud" >Búsqueda</span>
+                    </v-col>
+                </v-row>
+            </div>
             <div class="load">
-                <span class="title">Asignación</span>
+ <!--               <span class="title">Asignación</span> -->
                 <v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
                 <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
                     <v-icon>mdi-magnify</v-icon>

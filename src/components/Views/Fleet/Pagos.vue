@@ -1,8 +1,15 @@
 <template>
     <div id="container-usuarios">
         <div class="usuarios">
+            <div class="formulario">
+                <v-row>
+                    <v-col cols="12" >
+                        <span class="solicitud" >Búsqueda</span>
+                    </v-col>
+                </v-row>
+            </div>
             <div class="load">
-                <span class="title">Pagos</span>
+<!--                <span class="title">Pagos</span> -->
             </div>
             <div class="load">
                 <v-text-field  class="search" v-model="filter"  label="Search"  outlined ></v-text-field>

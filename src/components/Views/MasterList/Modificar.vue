@@ -24,7 +24,7 @@
         <div class="filter">
           <v-form>
             <v-row>
-              <v-col class="col-md-4" cols="12">
+              <v-col cols="12">
                 <v-radio-group  v-model="CampoFilter"  row >
                   <v-radio label="Vin" value="vin"></v-radio>
                   <v-radio label="Placa" value="placa" true></v-radio>
@@ -344,6 +344,8 @@ export default {
   },
 
   created () {
+    console.log("enviando mensaje")
+    this.$store.state.message = "mostrando mensaje"
     //this.initialize()
     this.CatSistema()
   },

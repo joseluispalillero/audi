@@ -2,7 +2,7 @@
     <div id="container-usuarios">
         <div class="usuarios">
             <div class="load">
-                <span class="title">Verificaciones</span>
+<!--                <span class="title">Verificaciones</span> -->
             </div>
             <!--Proximas a vencer-->
             <div class="formulario">
@@ -19,6 +19,13 @@
                 </v-row>
             </div>
             <br /><br /><br />
+            <div class="formulario">
+                <v-row>
+                    <v-col cols="12" >
+                        <span class="solicitud" >Búsqueda</span>
+                    </v-col>
+                </v-row>
+            </div>
             <div class="load">
                 <v-text-field  class="search" v-model="filter"  label="Search"  outlined ></v-text-field>
                 <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach()" >
@@ -45,14 +52,6 @@
                         <template v-slot:top>
                         </template>
                     </v-data-table>    
-                </v-row>
-            </div>
-            <!--Area de mensajes-->
-            <div class="formulario">
-                <v-row>
-                    <v-col cols="12" >
-                        <span class="A1primera" >La asignación actual esta proxima a vencer</span>
-                    </v-col>
                 </v-row>
             </div>
         </div>
