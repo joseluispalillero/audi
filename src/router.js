@@ -109,14 +109,6 @@ export default new Router({
             name: 'Perfiles',
             component: () => import(/* webpackChunkName "Perfiles" */ './components/Views/admin/Perfiles')
         },
-             /* ====== Master ====== */
-
-        {
-            path: '/Master/Modificar',
-            name: 'Modificar',
-            component: () => import(/* webpackChunkName "Modificar" */ './components/Views/Master/Modificar')
-        },
-
               /* ====== Company Car ====== */
         {
             path: '/CompanyCar/Solicitud',

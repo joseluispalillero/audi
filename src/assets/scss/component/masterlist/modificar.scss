@@ -1,43 +1,48 @@
-#masterlist-modificar{
-    position: relative;
-    margin:4.16% 4.16%;
-    .modificar{
-        width: 95%;
-        height: auto;
-        .v-input--selection-controls .v-input__slot > .v-label, .v-input--selection-controls .v-radio > .v-label {
-          top: 5px;
-        }
-        .load{
-            .title{
-                font-size: 26px !important;
-                line-height: 22px;
-                display: flex;
-                color: #000000;
-                margin: 0 0 30px 0 ;
-            }
-            .btn-load{
-                color: #ffffff;
-                margin-top: 10px;
-            }
-            .filter{
-               margin: -30px 0 30px 0 ;
-            }
-            .checkHistorial{
-                font-weight: bold;
-            }
-        }
-        .formulario{
-            .title-form{
-                font-size: 22px !important;
-                line-height: 22px;
-                display: flex;
-                color: #000000;
-            }
-            .btn-add{
-                color: #ffffff;
-            }
+#masterlist-modificar {
+  position: relative;
+  margin: 4.16% 4.16%;
 
-        }
+  .modificar {
+    width: 100%;
+    height: auto;
+
+    .v-input--selection-controls .v-input__slot > .v-label, .v-input--selection-controls .v-radio > .v-label {
+      top: 5px;
     }
 
+    .load {
+      .title {
+        font-size: 26px !important;
+        line-height: 22px;
+        display: flex;
+        color: #000000;
+        margin: 0 0 30px 0;
+      }
+
+      .btn-load {
+        color: #ffffff;
+        margin-top: 10px;
+      }
+
+      .checkHistorial {
+        @media (max-width: 600px) {
+          margin: -34px -7px -30px 1px;
+        }
+        font-weight: bold;
+      }
+    }
+
+    .formulario {
+      .title-form {
+        font-size: 22px !important;
+        line-height: 22px;
+        display: flex;
+        color: #000000;
+      }
+
+      .btn-add {
+        color: #ffffff;
+      }
+    }
+  }
 }
