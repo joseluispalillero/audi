@@ -4,10 +4,21 @@
         <div class="usuarios">
             <div class="load">
                 <span class="title"> Mi Auto de Empresa</span>
-                <v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
+                <!--v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
                 <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
                     <v-icon>mdi-magnify</v-icon>
-                </v-btn>
+                </v-btn-->
+                <v-row>
+                  <v-col  cols="9" sm="9"  md="9" >
+                    <v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
+                  </v-col>
+                  <v-col  cols="2" sm="2" md="2" >
+                    <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
+                      <v-icon>mdi-magnify</v-icon>
+                      <div class="d-none d-sm-flex d-lg-none">Buscar</div>
+                    </v-btn>
+                  </v-col>
+                </v-row>
                 <div class="filter">
                 <v-radio-group  v-model="CampoFilter"  row >
                     <v-radio label="Número de empleado" value="numeroEmpleado" true></v-radio>
@@ -37,26 +48,26 @@
                     </template>
                 </v-data-table>
             </div> 
-            <div id="descargaArchivos">
+            <div id="descargaArchivos" style="margin-top:25px;">
               <v-row>
-                <v-col cols="2" >
+                <v-col md="4" cols="4">
                   <v-img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" max-height="30" max-width="30"></v-img>
                 </v-col>
-                <v-col cols="2" >
+                <v-col md="4" cols="4">
                    <v-img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" max-height="30" max-width="30"></v-img>
                 </v-col>
-                <v-col cols="2" >
+                <v-col md="4" cols="4">
                    <v-img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" max-height="30" max-width="30"></v-img>
                 </v-col>
               </v-row>
               <v-row>
-                <v-col cols="2" >
+                <v-col md="4" cols="4">
                   <span class="title"> Contrato</span>
                 </v-col>
-                <v-col cols="2" >
+                <v-col md="4" cols="4">
                   <span class="title"> Solicitud</span>
                 </v-col>
-                <v-col cols="2" >
+                <v-col md="4" cols="4">
                   <span class="title"> Pagare</span>
                 </v-col>
               </v-row>

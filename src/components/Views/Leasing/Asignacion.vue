@@ -11,10 +11,21 @@
             </div>
             <div class="load">
  <!--               <span class="title">Asignación</span> -->
-                <v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
+                <!--v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
                 <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
                     <v-icon>mdi-magnify</v-icon>
-                </v-btn>
+                </v-btn-->
+                <v-row>
+                    <v-col  cols="9" sm="9"  md="9" >
+                        <v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
+                    </v-col>
+                    <v-col  cols="2" sm="2" md="2" >
+                        <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
+                        <v-icon>mdi-magnify</v-icon>
+                        <div class="d-none d-sm-flex d-lg-none">Buscar</div>
+                        </v-btn>
+                    </v-col>
+                </v-row>
                 <div class="filter">
                     <v-radio-group  v-model="CampoFilter"  row >
                         <v-radio label="Número de empleado" value="nc" true></v-radio>
@@ -148,10 +159,10 @@
             <br /> 
             <div>
                 <v-row>
-                    <v-col  cols="12" sm="2"  md="2" >
+                    <v-col  cols="6" sm="2"  md="2" >
                         <v-btn  color="#f50537" dark>Cancelar</v-btn>
                     </v-col>
-                    <v-col  cols="12" sm="2"  md="2" >
+                    <v-col  cols="6" sm="2"  md="2" >
                         <v-btn  color="#f50537" dark>Guardar</v-btn>
                     </v-col>
                 </v-row>

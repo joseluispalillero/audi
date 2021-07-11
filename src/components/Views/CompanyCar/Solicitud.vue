@@ -3,11 +3,22 @@
    <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="usuarios">
     <div class="load">
-         <span class="title"> Solicitud  </span>
-         <v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
+        <span class="title"> Solicitud  </span>
+        <v-row>
+          <v-col  cols="9" sm="9"  md="9" >
+            <v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
+          </v-col>
+          <v-col  cols="2" sm="2" md="2" >
+            <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
+              <v-icon>mdi-magnify</v-icon>
+              <div class="d-none d-sm-flex d-lg-none">Buscar</div>
+            </v-btn>
+          </v-col>
+        </v-row>
+         <!--v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
          <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
              <v-icon>mdi-magnify</v-icon>
-         </v-btn>
+         </v-btn-->
          <div class="filter">
          <v-radio-group  v-model="CampoFilter"  row >
             <v-radio label="Número de empleado" value="nc" true></v-radio>
@@ -17,16 +28,16 @@
     </div>
     <div class="formularioLectura">
         <v-row >
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
             <v-text-field ref="Nempleado" v-model="Nempleado"  label="Número de empleado" disabled  outlined ></v-text-field>
           </v-col>
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
             <v-text-field ref="NomEmpleado" v-model="NomEmpleado"  label="Nombre del empleado" disabled outlined ></v-text-field>
           </v-col>
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
             <v-text-field ref="UO" v-model="UO"  label="Unidad Organizacional" disabled outlined ></v-text-field>
           </v-col>
-          <v-col cols="12" >
+          <v-col md="4" cols="12">
             <v-text-field ref="GrupoPersona" v-model="GrupoPersona"  label="Grupo Persona" disabled outlined ></v-text-field>
           </v-col>
         </v-row>
@@ -35,60 +46,68 @@
     <div class="formulario">
       <v-form v-model="valid" >
         <v-row >
-         <v-col cols="4" >
+         <v-col md="4" cols="12">
              <v-text-field ref="Cfamiliar" v-model="Cfamiliar"  label="Clasificación familiar" disabled outlined></v-text-field>
           </v-col>
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
             <v-text-field ref="licencia" v-model="licencia" :rules="licenciaRules" label="Número de licencia de conducir*" required outlined ></v-text-field>
           </v-col>
-          <v-col cols="3" >
+          <v-col md="3" cols="12">
             <v-text-field label="Fecha de vencimiento de licencia de conducir"  required :rules="dateFechaRules"   v-model="FechaVencimiento" outlined  prepend-icon="mdi-calendar"  readonly  @click="dialogFecha = true"  ></v-text-field>
           </v-col>
-          <v-col cols="1" >
+          <v-col md="1" cols="12">
              <v-checkbox label="Permanente" v-model="Permanente" v-on:click="DateLicencia" ></v-checkbox>
           </v-col>
-          <v-col cols="12" >
+          <v-col md="12" cols="12">
              <span class="solicitud" >Solicitud de modelo</span>
           </v-col>
-           <v-col cols="4" >
+           <v-col md="4" cols="12">
              <span class="A1primera" >Primer auto*</span>
           </v-col>
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
              <v-select  label="Primera opción" :items="A1Primera"   required :rules="A1PrimeraRules" v-model="A1PrimeraOpcion" outlined  >
              </v-select>
           </v-col>
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
              <v-select  label="Segunda opción" :items="A1Segunda"   required :rules="A1SegundaRules" v-model="A1SegundaOpcion" outlined  >
              </v-select>
           </v-col>
-          <v-col cols="4" v-show="tipoGrupoPersona" >
+          <v-col md="4" cols="12" v-show="tipoGrupoPersona" >
              <span class="A1primera" >Segundo auto</span>
           </v-col>
-          <v-col cols="4" v-show="tipoGrupoPersona" >
+          <v-col md="4" cols="12" v-show="tipoGrupoPersona" >
              <v-select  label="Primera opción" :items="A2Primera"    v-model="A2PrimeraOpcion" outlined  >
              </v-select>
           </v-col>
-          <v-col cols="4" v-show="tipoGrupoPersona" >
+          <v-col md="4" cols="12" v-show="tipoGrupoPersona" >
              <v-select  label="Segunda opción" :items="A2Segunda"    v-model="A2SegundaOpcion"  outlined >
              </v-select>
           </v-col>
-          <v-col cols="12" >
+          <v-col md="12" cols="12">
             <a class="link" href="#" >
                <span class="text">Consulta Anexo 2 Matriz de autos de empresa </span>
             </a>
           </v-col>
-          <v-col cols="12" >
+          <v-col md="12" cols="12">
              <span class="motivo" >Motivo*</span>
           </v-col>
-          <v-col cols="12" >
-          <v-radio-group  v-model="motivo" required :rules="motivoRules" row  >
-             <v-radio label="Nuevo ingreso" value="1"  ></v-radio>
+          <v-col md="12" cols="12">
+          <v-radio-group  v-model="motivo" required :rules="motivoRules" >
+             <v-col md="3" cols="12">
+               <v-radio label="Nuevo ingreso" value="1" style="margin:0 0 0 15%;" ></v-radio>
+             </v-col>
+            <v-col md="3" cols="12">
              <v-radio   label="Renovación" value="2" style="margin:0 0 0 15%;" ></v-radio>
+             </v-col>
+             <v-col md="3" cols="12">
              <v-radio   label="Promoción" value="3" style="margin:0 0 0 17%;"></v-radio>
+             </v-col>
+             <v-col md="3" cols="12">
              <v-radio   label="Otro" value="4" style="margin:0 0 0 17%;"></v-radio>
+             </v-col>
           </v-radio-group>
           </v-col>
-          <v-col cols="12">
+          <v-col md="12" cols="12">
           <v-checkbox v-model="condiciones" required :rules="condicionesRules" >
             <template v-slot:label>
               <div>
@@ -127,8 +146,9 @@
 </template>
 
 <script>
-
-  export default {
+import NavigationInfo from '../NavigationInfo.vue'
+export default {
+  components: {NavigationInfo},  
     data: () => ({
       navigationInfo: [
         {

@@ -4,10 +4,18 @@
     <div class="asignacion">
     <div class="load">
          <span class="title"> Solicitud  </span>
-         <v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
-         <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
-             <v-icon>mdi-magnify</v-icon>
-         </v-btn>
+
+            <v-row>
+              <v-col  cols="9" sm="9"  md="9" >
+                <v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
+              </v-col>
+               <v-col  cols="2" sm="2" md="2" >
+                <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
+                  <v-icon>mdi-magnify</v-icon>
+                  <div class="d-none d-sm-flex d-lg-none">Buscar</div>
+               </v-btn>
+              </v-col>
+        </v-row>
          <div class="filter">
          <v-radio-group  v-model="CampoFilter"  row >
             <v-radio label="Número de empleado" value="nc" true></v-radio>
@@ -32,19 +40,19 @@
 
     <div class="formularioLectura">
         <v-row >
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
             <v-text-field ref="Nempleado" v-model="Nempleado"  label="Número de empleado" disabled  outlined ></v-text-field>
           </v-col>
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
             <v-text-field ref="NomEmpleado" v-model="NomEmpleado"  label="Nombre del empleado" disabled outlined ></v-text-field>
           </v-col>
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
             <v-text-field ref="UO" v-model="UO"  label="Unidad Organizacional" disabled outlined ></v-text-field>
           </v-col>
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
             <v-text-field ref="GrupoPersona" v-model="GrupoPersona"  label="Grupo Persona" disabled outlined ></v-text-field>
           </v-col>
-           <v-col cols="4" >
+           <v-col md="4" cols="12">
               <v-text-field ref="Cfamiliar" v-model="Cfamiliar"  label="Clasificación familiar" disabled outlined></v-text-field>
            </v-col>
         </v-row>
@@ -53,22 +61,22 @@
     <div class="formulario">
       <v-form v-model="valid" >
         <v-row >
-           <v-col cols="4" >
+           <v-col md="4" cols="12">
              <span class="A1primera" >Primer auto*</span>
           </v-col>
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
               <v-text-field ref="A1PrimeraOpcion" v-model="A1PrimeraOpcion"  label="Primera opción" disabled outlined ></v-text-field>
           </v-col>
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
              <v-text-field ref="A1SegundaOpcion" v-model="A1SegundaOpcion"  label="Segunda opción" disabled outlined ></v-text-field>
           </v-col>
-          <v-col cols="4" v-show="tipoGrupoPersona" >
+          <v-col md="4" cols="12" v-show="tipoGrupoPersona" >
              <span class="A1primera" >Segundo auto</span>
           </v-col>
-          <v-col cols="4" v-show="tipoGrupoPersona" >
+          <v-col md="4" cols="12" v-show="tipoGrupoPersona" >
              <v-text-field ref="A2PrimeraOpcion" v-model="A2PrimeraOpcion"  label="Primera opción" disabled outlined ></v-text-field>
           </v-col>
-          <v-col cols="4" v-show="tipoGrupoPersona" >
+          <v-col md="4" cols="12" v-show="tipoGrupoPersona" >
              <v-text-field ref="A2SegundaOpcion" v-model="A2SegundaOpcion"  label="Segunda opción" disabled outlined ></v-text-field>
           </v-col>
           <v-col cols="12">
@@ -83,7 +91,7 @@
              </v-data-table>
           </div>
           </v-col>
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
               <v-select  label="modelos" :items="modelosList"   required :rules="modelosRules" v-model="modelos " outlined  >
               </v-select>
           </v-col>
@@ -103,16 +111,16 @@
                 </v-data-table>
            </div>
            </v-col>
-           <v-col cols="4" >
+           <v-col md="4" cols="12">
               <v-text-field ref="Lugar" v-model="lugar" :rules="LugarRules" label="Lugar de entrega*" required outlined ></v-text-field>
            </v-col>
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
               <v-text-field ref="hora" v-model="hora" :rules="HoraRules" label="Hora de entrega del auto*" required outlined ></v-text-field>
           </v-col>
-          <v-col cols="4" >
+          <v-col md="4" cols="12">
              <v-text-field label="Fecha de entrega del auto*" required  :rules="dateFechaRules"   v-model="FechaEntrega" outlined  prepend-icon="mdi-calendar"  readonly  @click="dialogFecha = true"  ></v-text-field>
           </v-col>
-          <v-col cols="12">
+          <v-col md="4" cols="12">
             <v-btn  class="btn-add" color="#f50537" @click="showAlert" :disabled="!valid" href="Archivo.pdf"  download >Guardar </v-btn>
           </v-col>
         </v-row>
