@@ -28,10 +28,21 @@
                 </v-row>
             </div>
             <div class="load">
-                <v-text-field  class="search" v-model="filter"  label="Search"  outlined ></v-text-field>
+                <!--v-text-field  class="search" v-model="filter"  label="Search"  outlined ></v-text-field>
                 <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach()" >
                     <v-icon>mdi-magnify</v-icon>
-                </v-btn>
+                </v-btn-->
+                <v-row>
+                    <v-col  cols="9" sm="9"  md="9" >
+                        <v-text-field  class="search" v-model="filter"  label="Search"  outlined ></v-text-field>
+                    </v-col>
+                    <v-col  cols="2" sm="2" md="2" >
+                        <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach()" >
+                        <v-icon>mdi-magnify</v-icon>
+                        <div class="d-none d-sm-flex d-lg-none">Buscar</div>
+                        </v-btn>
+                    </v-col>
+                </v-row>
                 <div class="filter">
                     <v-radio-group  v-model="CampoFilter"  row >
                         <v-radio label="VIN" value="busqVin" true></v-radio>

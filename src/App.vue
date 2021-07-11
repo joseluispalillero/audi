@@ -85,7 +85,7 @@ export default {
         activate: true,
         mobilWidth: 1024,
         sizeWindow: '',
-        drawer:false,
+        drawer:true,
         theme: 1,       
         themes: [{
                 text: "Dark",
