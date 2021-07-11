@@ -1,5 +1,6 @@
 <template>
     <div id="container-usuarios">
+        <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
         <div class="usuarios">
             <div class="load">
                 <span class="title">Consumo de gasolina</span>
@@ -114,9 +115,26 @@
     </div>
 </template>
 <script>
-    export default {  
+        
+    import NavigationInfo from '../NavigationInfo.vue'
+    export default {
+    components: {NavigationInfo}, 
         data () {
             return {
+                navigationInfo: [
+                    {
+                    text: 'Home',
+                    disabled: true,
+                    },
+                    {
+                    text: 'Multas',
+                    disabled: true,
+                    },
+                    {
+                    text: 'Consumo de Gasolina',
+                    disabled: false
+                    },
+                ],
                 mostrar: false,
             }
         },

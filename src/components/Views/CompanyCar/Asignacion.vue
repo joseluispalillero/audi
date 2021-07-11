@@ -1,5 +1,6 @@
 <template>
  <div id="container-asignacion">
+   <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="asignacion">
     <div class="load">
          <span class="title"> Solicitud  </span>
@@ -138,9 +139,24 @@
 </template>
 
 <script>
-
-  export default {
+import NavigationInfo from '../NavigationInfo.vue'
+export default {
+  components: {NavigationInfo},
     data: () => ({
+      navigationInfo: [
+        {
+          text: 'Home',
+          disabled: true,
+        },
+        {
+          text: 'Company',
+          disabled: true,
+        },
+        {
+          text: 'Asignación',
+          disabled: false
+        },
+      ],
       valid: false,
       desserts: [],
       dessertsCars: [],

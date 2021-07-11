@@ -1,5 +1,6 @@
 <template>
  <div id="masterlist-prorroga">
+   <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="prorroga">
       <div class="load">
           <v-row>
@@ -75,7 +76,29 @@
 </template>
 
 <script>
+import NavigationInfo from '../NavigationInfo.vue'
+export default {
+  components: {NavigationInfo},
+  data: () => ({
+    navigationInfo: [
+      {
+        text: 'Home',
+        disabled: true,
+      },
+      {
+        text: 'MasterList',
+        disabled: true,
+      },
+      {
+        text: 'Prorroga',
+        disabled: false
+      },
+    ],
+    
 
+
+  })
+}
 </script>
 
 
@@ -90,5 +113,6 @@
     margin: 2px 2px 2px 2px;
     width: 1200px;
 }
-</style>>
+</style>
+
   

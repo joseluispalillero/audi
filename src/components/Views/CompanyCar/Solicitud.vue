@@ -1,5 +1,6 @@
 <template>
  <div id="container-usuarios">
+   <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="usuarios">
     <div class="load">
          <span class="title"> Solicitud  </span>
@@ -129,6 +130,20 @@
 
   export default {
     data: () => ({
+      navigationInfo: [
+        {
+          text: 'Home',
+          disabled: true,
+        },
+        {
+          text: 'Company',
+          disabled: true,
+        },
+        {
+          text: 'Solicitud',
+          disabled: false
+        },
+      ],
       valid: false,
       dismissSecs: 10,
       dismissCountDown: 0,

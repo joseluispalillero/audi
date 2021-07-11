@@ -1,5 +1,6 @@
 <template>
   <div id="masterlist-detalle">
+    <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div>
       <v-data-table :headers="headers" :items="Datos" >
         <template v-slot:item.Descripcion="props">
@@ -77,9 +78,25 @@
 </template>
 
 <script>
+import NavigationInfo from '../NavigationInfo.vue'
 export default {
+  components: {NavigationInfo},
   data() {
     return {
+      navigationInfo: [
+      {
+        text: 'Home',
+        disabled: true,
+      },
+      {
+        text: 'MasterList',
+        disabled: true,
+      },
+      {
+        text: 'Detalle',
+        disabled: false
+      },
+    ],
       snack: false,
       snackColor: "",
       snackText: "",

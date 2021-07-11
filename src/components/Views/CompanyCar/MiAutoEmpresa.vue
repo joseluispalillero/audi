@@ -1,5 +1,6 @@
 <template>
     <div id="container-usuarios">
+      <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
         <div class="usuarios">
             <div class="load">
                 <span class="title"> Mi Auto de Empresa</span>
@@ -64,9 +65,25 @@
    </div>
  </template>
  <script> 
-  export default {  
+import NavigationInfo from '../NavigationInfo.vue'
+export default {
+  components: {NavigationInfo},
     data () {
       return {
+       navigationInfo: [
+          {
+            text: 'Home',
+            disabled: true,
+          },
+          {
+            text: 'Company',
+            disabled: true,
+          },
+          {
+            text: 'Mi Auto Empresa',
+            disabled: false
+          },
+        ],
         headers: [
           { text: 'VIN', value: 'vin' },
           { text: 'Descripción del modelo', value: 'descModelo' },

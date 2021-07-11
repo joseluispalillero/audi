@@ -1,5 +1,6 @@
 <template>
     <div id="container-usuarios">
+        <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
         <div class="usuarios">
             <div class="formulario">
                 <v-row>
@@ -551,9 +552,25 @@
     </div>
 </template>
 <script>
-    export default {  
+    import NavigationInfo from '../NavigationInfo.vue'
+    export default {
+    components: {NavigationInfo},  
         data () {
             return {
+            navigationInfo: [
+                {
+                text: 'Home',
+                disabled: true,
+                },
+                {
+                text: 'Leasing',
+                disabled: true,
+                },
+                {
+                text: 'Solicitud',
+                disabled: false
+                },
+            ],
             dialogGuia: false,
             selected: [{}],
             mostrarSolicitud: false,
