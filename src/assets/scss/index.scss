@@ -262,3 +262,13 @@ li.dropdown {
     margin-bottom: 12px;
   }
 }
+
+
+@media all and (min-width: 1024px) {
+  .contentView { margin-left: 30px; }
+  .logoUser{margin-left: 60px;}
+}
+
+@media all and (max-width: 1024px) {
+  .contentView { margin-left: 0px; }
+}

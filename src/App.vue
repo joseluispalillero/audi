@@ -1,21 +1,21 @@
 <template>
   <v-app>    
     <nav>   
-      <v-toolbar>     
-          <div style="margin-left:50px;">
-              <img style="float: left" src="./assets/scss/images/logo_audi.svg" class="imgLogo"/>
-            </div>   
-        <v-toolbar-title>
-          <div style="padding-top: 10px;">
-              <span class="red--text txtencabezado">Audi</span>
-              <span class="black--text txtencabezado">Fleet</span>
-            </div>
-        </v-toolbar-title>
-       
+      <v-toolbar>   
+        <!--v-btn color="red" dark @click.stop="drawer = !drawer" class="d-sm-none"> Menú </v-btn-->  
+          <div class="logoUser">
+            <img style="float: left" src="./assets/scss/images/logo_audi.svg" class="imgLogo"/>
+          </div>   
+          <v-toolbar-title>
+            <div style="padding-top: 10px;">
+                <span class="red--text txtencabezado">Audi</span>
+                <span class="black--text txtencabezado">Fleet</span>
+              </div>
+          </v-toolbar-title>       
       </v-toolbar> 
     </nav>
     
-      <v-navigation-drawer app
+      <v-navigation-drawer class="d-none d-md-block d-lg-block" app v-model="drawer"
         permanent
         expand-on-hover
       >
@@ -64,7 +64,7 @@
       </v-list-group>
     </v-list>
       </v-navigation-drawer>    
-      <div class="zdiv txtbody" style="width:100%; height:100%; overflow: scroll; margin-left: 50px;">
+      <div class="zdiv txtbody contentView"  :class="updateWindowDimensions " style=" width:100%; height:100%; overflow: scroll;">
         <router-view />
       </div>
       <div style="width: 100%">
@@ -78,11 +78,13 @@
       </div>
   </v-app>
 </template>
-
 <script>
 export default {
     data: () => ({
         activate: true,
+        mobilWidth: 1024,
+        sizeWindow: '',
+        drawer:false,
         theme: 1,       
         themes: [{
                 text: "Dark",
@@ -240,8 +242,20 @@ export default {
           ],
           title: 'Admin',
         },
-      ],      
+      ],    
+      
+       computed: {         
+          updateWindowDimensions () {        
+            let sizeWindowClass = 'classDesktop';    
+                sizeWindowClass = this.mobilWidth < window.innerWidth ? 'classMobil' : 'classDesktop';
+                console.log("----------------",sizeWindowClass)
+                return sizeWindowClass;
+          },
+        },
+
     })
+
+    
 };
 </script>
 
