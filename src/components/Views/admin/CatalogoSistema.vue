@@ -1,5 +1,6 @@
 <template>
  <div id="container-CatalogoSistema">
+   <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="CatalogoSistema">
 
     <v-alert type="success" v-model="alert" dismissible  elevation="2"  >  Carga de archivo exitoso </v-alert>
@@ -131,8 +132,24 @@
   import moment from 'moment'
   import XLSX from "xlsx"
 
+  import NavigationInfo from '../NavigationInfo.vue'
   export default {
+    components: {NavigationInfo}, 
     data: () => ({
+      navigationInfo: [
+          {
+          text: 'Home',
+          disabled: true,
+          },
+          {
+          text: 'Administrador',
+          disabled: true,
+          },
+          {
+          text: 'Pagos',
+          disabled: false
+          },
+      ],
       dialog: false,
       file: null,
       filter: '',

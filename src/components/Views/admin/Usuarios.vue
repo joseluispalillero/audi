@@ -1,5 +1,6 @@
 <template>
  <div id="container-usuarios">
+   <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="usuarios">
     <div class="load">
          <span class="title"> Usuarios </span>
@@ -108,9 +109,25 @@
 
 <script>
   import axios from 'axios'
-
+  import NavigationInfo from '../NavigationInfo.vue'
+  
   export default {
+    components: {NavigationInfo}, 
     data: () => ({
+      navigationInfo: [
+          {
+          text: 'Home',
+          disabled: true,
+          },
+          {
+          text: 'Administrador',
+          disabled: true,
+          },
+          {
+          text: 'Multas',
+          disabled: false
+          },
+      ],
       dialog: false,
       validate : false,
       desserts: [],

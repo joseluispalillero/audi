@@ -1,5 +1,6 @@
 <template>
  <div id="container-PagosVwfs">
+   <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="Pagos-Vwfs">
 
     <v-alert type="success" v-model="alert" dismissible  elevation="2"  >  Carga de archivo exitoso </v-alert>
@@ -200,6 +201,20 @@
 
   export default {
     data: () => ({
+      navigationInfo: [
+            {
+            text: 'Home',
+            disabled: true,
+            },
+            {
+            text: 'Administrador',
+            disabled: true,
+            },
+            {
+            text: 'Pagos',
+            disabled: false
+            },
+        ],
       dialog: false,
       menu: false,
       file: null,

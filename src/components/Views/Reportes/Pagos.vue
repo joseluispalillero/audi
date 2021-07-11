@@ -1,5 +1,6 @@
 <template>
     <div id="container-usuarios">
+        <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
         <div class="usuarios">
             <!--Criterios de búsqueda-->
             <div class="v-text">
@@ -75,9 +76,25 @@
     </div>
 </template>
 <script>
-    export default {  
+    import NavigationInfo from '../NavigationInfo.vue'
+    export default {
+    components: {NavigationInfo}, 
         data () {
             return {
+            navigationInfo: [
+                {
+                text: 'Home',
+                disabled: true,
+                },
+                {
+                text: 'Reportes',
+                disabled: true,
+                },
+                {
+                text: 'Pagos',
+                disabled: false
+                },
+            ],
             dialogFecha: false,
             mostrar: false,
             headersReporte: [

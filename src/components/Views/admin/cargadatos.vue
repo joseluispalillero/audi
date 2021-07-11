@@ -1,5 +1,6 @@
 <template>
  <div id="Carga">
+   <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="selection-carga">
         <span class="title">Seleccione el catalogo al subir al sistema.</span>
          <v-radio-group class="radio"  v-model="radios" >
@@ -18,9 +19,25 @@
 </template>
 
 <script>
-  export default {
+    import NavigationInfo from '../NavigationInfo.vue'
+    export default {
+    components: {NavigationInfo}, 
     data () {
           return {
+             navigationInfo: [
+                {
+                text: 'Home',
+                disabled: true,
+                },
+                {
+                text: 'Administrador',
+                disabled: true,
+                },
+                {
+                text: 'Cargar Datos',
+                disabled: false
+                },
+            ],
             dialog: false
           }
         },

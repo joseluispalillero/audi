@@ -1,5 +1,6 @@
 <template>
  <div id="container-verificaciones">
+   <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="verificaciones">
 
         <v-alert type="success" v-model="alert" dismissible  elevation="2"  >  Carga de archivo exitoso </v-alert>
@@ -132,9 +133,25 @@
   import axios from 'axios'
   import moment from 'moment'
   import XLSX from "xlsx"
-
+  import NavigationInfo from '../NavigationInfo.vue'
+  
   export default {
+    components: {NavigationInfo}, 
     data: () => ({
+      navigationInfo: [
+          {
+          text: 'Home',
+          disabled: true,
+          },
+          {
+          text: 'Administrador',
+          disabled: true,
+          },
+          {
+          text: 'Verificaciones',
+          disabled: false
+          },
+      ],
       dialog: false,
       menu: false,
       alta: false,
