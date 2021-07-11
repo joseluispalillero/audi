@@ -2,7 +2,8 @@
   <v-app>    
     <nav>   
       <v-toolbar>   
-        <!--v-btn color="red" dark @click.stop="drawer = !drawer" class="d-sm-none"> Menú </v-btn-->  
+        <!--v-btn color="red" dark @click="drawer =! drawer" class="d-sm-none"> Menú </v-btn-->  
+        <v-app-bar-nav-icon color="deep-gray darken-3" app @click="drawer=!drawer"></v-app-bar-nav-icon>
           <div class="logoUser">
             <img style="float: left" src="./assets/scss/images/logo_audi.svg" class="imgLogo"/>
           </div>   
@@ -15,8 +16,8 @@
       </v-toolbar> 
     </nav>
     
-      <v-navigation-drawer class="d-none d-md-block d-lg-block" app v-model="drawer"
-        permanent
+      <v-navigation-drawer app v-model="drawer"
+        
         expand-on-hover
       >
         <v-list>
@@ -64,7 +65,7 @@
       </v-list-group>
     </v-list>
       </v-navigation-drawer>    
-      <div class="zdiv txtbody contentView"  :class="updateWindowDimensions " style=" width:100%; height:100%; overflow: scroll;">
+      <div class="zdiv txtbody contentView" style=" width:100%; height:100%; overflow: scroll;">
         <router-view />
       </div>
       <div style="width: 100%">
@@ -242,19 +243,11 @@ export default {
           ],
           title: 'Admin',
         },
-      ],    
-      
-       computed: {         
-          updateWindowDimensions () {        
-            let sizeWindowClass = 'classDesktop';    
-                sizeWindowClass = this.mobilWidth < window.innerWidth ? 'classMobil' : 'classDesktop';
-                console.log("----------------",sizeWindowClass)
-                return sizeWindowClass;
-          },
-        },
+      ]
 
-    })
+    }),
 
+    
     
 };
 </script>
