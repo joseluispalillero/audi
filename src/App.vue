@@ -148,24 +148,18 @@
       </v-toolbar>
     </div>
     <div class="d-flex d-lg-none d-md-none">
-      <v-navigation-drawer
-          absolute
+      <v-navigation-drawer 
+          absolute 
           v-model="drawer">
-        <v-list-item class="px-2">
+        <v-list-item>
           <v-list-item-title>{{user}}</v-list-item-title>
         </v-list-item>
-        <v-divider></v-divider>
-        <v-list dense>
-
-          <v-list-item link>
+        <v-divider></v-divider>               
+        <v-list-item link>
             <v-list-item-content>
-              <v-list-item-title class="text-h6">
-                Freddy Amaury Osorio Jiménez
-              </v-list-item-title>
-              <v-list-item-subtitle>fredy@gmail.com</v-list-item-subtitle>
+                <MessageMenu :items="items"></MessageMenu>  
             </v-list-item-content>
-          </v-list-item>
-        </v-list>
+        </v-list-item>  
       </v-navigation-drawer>
     </div>
     <div class="body__content txtbody">
@@ -179,25 +173,164 @@
 
 <script>
 import MessageArea from './components/MessageArea.vue'
+import MessageMenu from './components/MessageMenu.vue'
 
 export default {
-  components: {MessageArea},
-  data: () => ({
-    drawer: false,
-    user: 'Freddy Amaury Osorio Jiménez',
-    activate: true,
-    theme: 1,
-    themes: [{
-      text: "Dark",
-      icon: "mdi-clock"
-    },
-      {
-        text: "Light",
-        icon: "mdi-account"
-      }
-    ],
-    mini: true,
-    Masterlist: [
+  components: {MessageArea, MessageMenu},
+  data() {
+    
+    return {
+      drawer: false,
+      user: 'Freddy Amaury Osorio Jiménez',
+      activate: true,   
+      items: [
+        {
+          action: 'mdi-label',
+          items: [{
+                  title: "Modificar",
+                  link: "/Masterlist/Modificar"
+                },
+                {
+                  title: "Traspaso",
+                  link: "/Masterlist/Traspaso"
+                },
+                {
+                  title: "Prorroga",
+                  link: "/Masterlist/Prorroga"
+                },
+                {
+                  title: "Baja",
+                  link: "/Masterlist/Baja"
+                },
+                {
+                  title: "Detalle",
+                  link: "/Masterlist/Detalle"
+                }],
+          title: 'MasterList',
+        },
+        {
+          action: 'mdi-home-city',
+          active: true,
+          items: [
+                  {
+                    title: "Asignación",
+                    link: "/CompanyCar/Asignacion"
+                  },
+                  {
+                    title: "Solicitud",
+                    link: "/CompanyCar/Solicitud"
+                  },
+                  {
+                    title: "Mi auto de empresa",
+                    link: "/CompanyCar/MiAutoEmpresa"
+                  }
+          ],
+          title: 'Company',
+        },
+        {
+          action: 'mdi-wrench',
+          items: [
+                    {
+                      title: "Asignacion",
+                      link: "/Leasing/Asignacion"
+                    },
+                    {
+                      title: "Solicitud",
+                      link: "/Leasing/Solicitud"
+                    },
+                    {
+                      title: "Mi Leasing",
+                      link: "/Leasing/MiLeasing"
+                    }
+                  ],
+          title: 'Leasing',
+        },
+        {
+          action: 'mdi-gavel',
+          items: [            
+                    {
+                      title: "Verificaciones",
+                      link: "/Fleet/Verificaciones"
+                    },
+                    {
+                      title: "Mantenimientos",
+                      link: "/Fleet/Mantenimientos"
+                    },
+                    {
+                      title: "Pagos",
+                      link: "/Fleet/Pagos"
+                    },
+                    {
+                      title: "Tarjeta de gasolina",
+                      link: "/Fleet/TarjetaGasolina"
+                    },
+                    {
+                      title: "Consumo de gasolina",
+                      link: "/Fleet/ConsumoGasolina"
+                    }
+                ],
+          title: 'Multas',
+        },
+        {
+          action: 'mdi-tag',
+          items: [
+                    {
+                      title: "Formatos",
+                      link: "/Formatos/Formatos"
+                    }
+                  ],
+          title: 'Formatos',
+        },
+        {
+          action: 'mdi-folder',
+          items: [
+                    {
+                      title: "Flotilla",
+                      link: "/Reportes/Flotilla"
+                    },
+                    {
+                      title: "Pagos",
+                      link: "/Reportes/Pagos"
+                    },
+                    {
+                      title: "Verificaciones",
+                      link: "/Reportes/Verificaciones"
+                    },
+                    {
+                      title: "Multas",
+                      link: "/Reportes/Multas"
+                    },
+                    {
+                      title: "Gasolina",
+                      link: "/Reportes/Gasolina"
+                    },
+          ],
+          title: 'Reportes',
+        },
+        {
+          action: 'mdi-account',
+          items: [
+                    {
+                      title: "Carga datos",
+                      link: "/Admin/cargadatos"
+                    },
+                    {
+                      title: "Pagos",
+                      link: "/Admin/CatalogoSistema"
+                    },
+                    {
+                      title: "Verificaciones",
+                      link: "/Admin/Usuarios"
+                    },
+                    {
+                      title: "Multas",
+                      link: "/Admin/Perfiles"
+                    },                   
+          ],
+          title: 'Admin',
+        },
+      ],
+      Masterlist: [
       {
         title: "Modificar",
         link: "/Masterlist/Modificar"
@@ -321,6 +454,13 @@ export default {
         link: "/Admin/Perfiles"
       }
     ]
-  })
+
+
+
+     
+    
+    };
+  },
+
 };
 </script>

@@ -35,7 +35,7 @@ body{
 }
 
 .body__content{
-  z-index: 3;
+
   height: calc(100vh - 119px) ;
   width: 100%;
   border: 1px solid #0f0f0f;
@@ -105,7 +105,7 @@ body{
 #bannerfooter {
   width: 70vw;
   height: 55px;
-  position: relative;
+  position: sticky;
   overflow: visible;
   margin: 0 0 0 auto;
   background: #f50437;
