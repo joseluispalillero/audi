@@ -355,7 +355,7 @@ export default {
       return moment(value).format("YYYY-MM-DD")
     },
     async CatSistema () {
-      const url = `https://y3a2p5cww7.execute-api.us-west-2.amazonaws.com/Prod/catsystem`
+      const url = `https://apiaudifleet.optimissacloud.com/Prod/catsystem`
       try {
         const response = await axios.get(url);
         this.itemPlazo = response.data.result.catalogos.plazo
@@ -375,7 +375,8 @@ export default {
         if (typeof busqueda !== 'undefined' && busqueda !== null  )
           params= params.concat(`?${campoFilter}=${busqueda.campoFilter}`);
 
-        const url = `https://y3a2p5cww7.execute-api.us-west-2.amazonaws.com/Prod/masterlist${params}`
+        /* const url = `https://y3a2p5cww7.execute-api.us-west-2.amazonaws.com/Prod/masterlist${params}` */
+        const url = `https://apiaudifleet.optimissacloud.com/Prod/masterlist${params}`
         try {
           console.log(url)
           const response = await axios.get(url);
@@ -465,7 +466,7 @@ export default {
           "fechaAvaluo":fecha_avaluo,
           "idUsuarioModif": 1
         };
-        const url = `https://y3a2p5cww7.execute-api.us-west-2.amazonaws.com/Prod/masterlist`
+        const url = `https://apiaudifleet.optimissacloud.com/Prod/masterlist`
         const headers={
           "Content-Type":'application/json',
           "Access-Control-Allow-Credentials": false

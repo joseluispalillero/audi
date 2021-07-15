@@ -1,12 +1,13 @@
 <template>
  <div id="container-flotilla">
+  <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="flotilla">
 
         <v-alert type="success" v-model="alert" dismissible  elevation="2"  >  Carga de archivo exitoso </v-alert>
         <v-alert type="error" v-model="alertError" dismissible  elevation="2"  > Validar archivo Cargado </v-alert>
 
     <div class="load">
-        <span class="title"> Cargar archivo de Flotilla </span>
+        <span class="title">Carga masiva </span>
          <v-file-input label="Cargar Archivo" outlined v-model="file" id="file"  accept=".xlsx"   dense ></v-file-input>
          <v-btn class="btn-load"  color="#f50537"  v-on:click="onUpload" >   Cargar </v-btn>
        <v-btn class="btn-return" color="#f50537"  v-on:click="CargaDatosR" >   Regresar </v-btn>
@@ -15,7 +16,7 @@
     <v-divider class="divider-form" ></v-divider>
 
      <div class="load-seach">
-     <span class="title">Flotilla</span>
+     <span class="title">Carga individual </span>
      <v-text-field  class="search" v-model="filter"  label="Buscar"  :rules="searchRules"  outlined ></v-text-field>
      <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
          <v-icon>mdi-magnify</v-icon>
@@ -41,6 +42,7 @@
                    <v-spacer></v-spacer>
              <v-btn class="btn-add"  color="#f50537"   v-on:click="usuarios" >
                  <v-icon>mdi-plus</v-icon>
+                 Agregar
               </v-btn>
              <v-dialog v-model="dialogDelete" max-width="650px">
                <v-card>
@@ -238,9 +240,29 @@
   import axios from 'axios'
   import moment from 'moment'
   import XLSX from "xlsx"
+  import NavigationInfo from "../NavigationInfo";
 
   export default {
-    data: () => ({
+    components: {NavigationInfo},
+     data: () => ({
+       navigationInfo: [
+          {
+            text: 'Home',
+            disabled: true,
+          },
+          {
+            text: 'Admin',
+            disabled: true,
+          },
+          {
+            text: 'Carga datos',
+            disabled: true,
+          },
+          {
+            text: 'Flotilla',
+            disabled: false
+          },
+      ],
       dialog: false,
       menu: false,
       file: null,

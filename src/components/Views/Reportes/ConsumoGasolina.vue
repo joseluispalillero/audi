@@ -18,22 +18,19 @@
                         <v-checkbox v-model="serviceBusq" :label="`Service car`"></v-checkbox>
                         <v-checkbox v-model="leasingBusq" :label="`Leasing`"></v-checkbox>
                     </v-col>
-                    <v-col cols="12"  sm="2"  md="2">
-                        <v-checkbox v-model="activosBusq" :label="`Activos`"></v-checkbox>
-                        <v-checkbox v-model="inactivosBusq" :label="`Inactivos`"></v-checkbox>
-                        <v-checkbox v-model="porAsignarBusq" :label="`Por asignar`"></v-checkbox>
+                    <v-col cols="12"  sm="3"  md="3">
+                        <v-select :items="['Activo', 'Inactivo']" label="Estatus tarjeta"></v-select>    
+                        <v-select :items="['Diesel', 'Premium']" label="Tipo de combustible"></v-select> 
+                        <v-text-field label="Número de tarjeta"></v-text-field>
                     </v-col>
                     <v-col cols="12"  sm="3"  md="3">
                         <v-card-text>
-                            Fin Verificación
+                            Fecha
                         </v-card-text>
                         <div class="load">
                             <v-text-field label="Fecha inicio"   prepend-icon="mdi-calendar"  readonly  @click="dialogFecha = true"  ></v-text-field>
                             <v-text-field label="Fecha fin"   prepend-icon="mdi-calendar"  readonly  @click="dialogFecha = true"  ></v-text-field>
                         </div>
-                    </v-col>
-                    <v-col cols="12"  sm="2"  md="2">
-                        <v-text-field label="VIN"></v-text-field>    
                     </v-col>
                 </v-row>
                 <v-row>
@@ -58,7 +55,7 @@
             <div class="formulario" v-show="mostrar">
                 <v-row>
                     <v-col cols="12" >
-                        <span class="solicitud" >Reporte verificaciones</span>
+                        <span class="solicitud" >Reporte consumo de gasolina</span>
                     </v-col>
                 </v-row>
                 <v-row>
@@ -73,7 +70,7 @@
                     <v-col  cols="12" sm="2"  md="2" ></v-col>
                     <v-col  cols="12" sm="3"  md="3" >
                         <v-btn icon href="https://eqpro.es/wp-content/uploads/2018/11/Ejemplo.pdf" target="_blank">
-                            Descargar Reporte de verificaciones
+                            Descargar Reporte de consumo de gasolina
                         </v-btn>
                     </v-col>
                 </v-row>
@@ -91,53 +88,74 @@
             mostrar: false,
             headersReporte: [
                 {
-                text: "VIN",
-                align: "left",
-                sortable: false,
-                value: "vin"
-                },
-                { text: "Auto", value: "auto" },
-                { text: "Flotilla", value: "flotilla" },
-                { text: "Fin contrato", value: "finCont" },
-                { text: "Tipo de verificación", value: "tipoVerif" },
-                { text: "Fin verifiación", value: "finVerif" },
-                { text: "Estatus vigencía", value: "estVig" },
-                { text: "Usuario de modificación", value: "usrMod" }
+                    text: "Número de tarjeta",
+                    align: "left",
+                    sortable: false,
+                    value: "numTarTab"
+                    },
+                    { text: "Número de tarjetahabiente", value: "thabienTab" },
+                    { text: "Movimiento", value: "movTab" },
+                    { text: "Abono", value: "abonoTab" },
+                    { text: "Cargo", value: "cargoTab" },
+                    { text: "Importe", value: "importeTab" },
+                    { text: "Nombre del empleado", value: "nombreEmp" },
+                    { text: "VIN", value: "vin" },
+                    { text: "Flotilla", value: "flotilla" },
+                    { text: "Placas", value: "placas"}
             ],
             tablaReporte: [
                 {
                     id: 1,
-                    auto: "A3",
-                    vin: "WAUZZZFY0H2030210",
-                    finCont: "31/12/9999",
-                    flotilla: "Service Car",
-                    usrMod: "Gerardo Robles Castillo",
-                    tipoVerif: "00",
-                    finVerif: "08/2021",
-                    estVig: "30 días"
+                    numTarTab: "872332954652",
+                    thabienTab: "4981883269349580",
+                    flotilla: "Leasing",
+                    movTab: "Abono",
+                    abonoTab: "$423.00",
+                    cargoTab: "",
+                    importeTab: "$423.00",
+                    nombreEmp: "Rocio Salinas",
+                    vin: "234DJGDFGVKNRI923",
+                    placas: "A87WET"
                 },
-                 {
+                {
                     id: 2,
-                    auto: "Q3",
-                    vin: "WAUDFA8U3ER051005",
-                    finCont: "2015/04/08",
-                    flotilla: "Company car",
-                    usrMod: "Gerardo Robles Castillo",
-                    tipoVerif: "00",
-                    finVerif: "12/2021",
-                    estVig: "Vigente"
-                },
-                 {
-                    id: 3,
-                    auto: "A4",
-                    vin: "WAUAFC8K4EN021113",
-                    finCont: "2015/06/22",
+                    numTarTab: "526232954396",
+                    thabienTab: "4981883269349580",
                     flotilla: "Company Car",
-                    usrMod: "Gerardo Robles Castillo",
-                    tipoVerif: "0",
-                    finVerif: "011/2021",
-                    estVig: "Vigente"
-                }
+                    movTab: "Cargo",
+                    abonoTab: "",
+                    cargoTab: "$950.00",
+                    importeTab: "$950.00",
+                    nombreEmp: "Mariana Pineda",
+                    vin: "234DJGDFGVKNRI923",
+                    placas: "A87WET"
+                },
+                {
+                    id: 3,
+                    numTarTab: "125632954154",
+                    thabienTab: "741883269349679",
+                    flotilla: "Company Car",
+                    movTab: "Cargo",
+                    abonoTab: "",
+                    cargoTab: "$745.00",
+                    importeTab: "$745.00",
+                    nombreEmp: "Eduardo Luna",
+                    vin: "234DJGDFGVKNRI923",
+                    placas: "A87WET"
+                },
+                {
+                    id: 4,
+                    numTarTab: "875632954789",
+                    thabienTab: "9631883269347426",
+                    flotilla: "Leasing",
+                    movTab: "Abono",
+                    abonoTab: "$4587.00",
+                    cargoTab: "",
+                    importeTab: "$4587.00",
+                    nombreEmp: "Laura España",
+                    vin: "234DJGDFGVKNRI7852",
+                    placas: "T36KJL"
+                },
             ],
             navigationInfo: [
                 {
@@ -149,7 +167,7 @@
                 disabled: true,
                 },
                 {
-                text: 'Verificaciones',
+                text: 'Consumo de gasolina',
                 disabled: false
                 }
             ]

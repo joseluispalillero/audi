@@ -62,7 +62,7 @@
           <li class="dropdown">
             <a href="" class="dropbtn">Formatos</a>
             <div class="dropdown-content">
-              <a href="#">Contratos</a>
+              <a href="#">Carga de documentos</a>
             </div>
           </li>
           <li class="dropdown">

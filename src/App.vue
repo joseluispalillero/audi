@@ -148,18 +148,18 @@
       </v-toolbar>
     </div>
     <div class="d-flex d-lg-none d-md-none">
-      <v-navigation-drawer 
-          absolute 
+      <v-navigation-drawer
+          absolute
           v-model="drawer">
         <v-list-item>
-          <v-list-item-title>{{user}}</v-list-item-title>
+          <v-list-item-title>{{ user }}</v-list-item-title>
         </v-list-item>
-        <v-divider></v-divider>               
+        <v-divider></v-divider>
         <v-list-item link>
-            <v-list-item-content>
-                <MessageMenu :items="items"></MessageMenu>  
-            </v-list-item-content>
-        </v-list-item>  
+          <v-list-item-content>
+            <MessageMenu :items="items"></MessageMenu>
+          </v-list-item-content>
+        </v-list-item>
       </v-navigation-drawer>
     </div>
     <div class="body__content txtbody">
@@ -178,289 +178,298 @@ import MessageMenu from './components/MessageMenu.vue'
 export default {
   components: {MessageArea, MessageMenu},
   data() {
-    
+
     return {
       drawer: false,
       user: 'Freddy Amaury Osorio Jiménez',
-      activate: true,   
+      activate: true,
+      theme: 1,
+      themes: [{
+        text: "Dark",
+        icon: "mdi-clock"
+      },
+        {
+          text: "Light",
+          icon: "mdi-account"
+        }
+      ],
       items: [
         {
           action: 'mdi-label',
           items: [{
-                  title: "Modificar",
-                  link: "/Masterlist/Modificar"
-                },
-                {
-                  title: "Traspaso",
-                  link: "/Masterlist/Traspaso"
-                },
-                {
-                  title: "Prorroga",
-                  link: "/Masterlist/Prorroga"
-                },
-                {
-                  title: "Baja",
-                  link: "/Masterlist/Baja"
-                },
-                {
-                  title: "Detalle",
-                  link: "/Masterlist/Detalle"
-                }],
+            title: "Modificar",
+            link: "/Masterlist/Modificar"
+          },
+            {
+              title: "Traspaso",
+              link: "/Masterlist/Traspaso"
+            },
+            {
+              title: "Prorroga",
+              link: "/Masterlist/Prorroga"
+            },
+            {
+              title: "Baja",
+              link: "/Masterlist/Baja"
+            },
+            {
+              title: "Detalle",
+              link: "/Masterlist/Detalle"
+            }],
           title: 'MasterList',
         },
         {
           action: 'mdi-home-city',
-          active: true,
           items: [
-                  {
-                    title: "Asignación",
-                    link: "/CompanyCar/Asignacion"
-                  },
-                  {
-                    title: "Solicitud",
-                    link: "/CompanyCar/Solicitud"
-                  },
-                  {
-                    title: "Mi auto de empresa",
-                    link: "/CompanyCar/MiAutoEmpresa"
-                  }
+            {
+              title: "Asignación",
+              link: "/CompanyCar/Asignacion"
+            },
+            {
+              title: "Solicitud",
+              link: "/CompanyCar/Solicitud"
+            },
+            {
+              title: "Mi auto de empresa",
+              link: "/CompanyCar/MiAutoEmpresa"
+            }
           ],
           title: 'Company',
         },
         {
           action: 'mdi-wrench',
           items: [
-                    {
-                      title: "Asignacion",
-                      link: "/Leasing/Asignacion"
-                    },
-                    {
-                      title: "Solicitud",
-                      link: "/Leasing/Solicitud"
-                    },
-                    {
-                      title: "Mi Leasing",
-                      link: "/Leasing/MiLeasing"
-                    }
-                  ],
+            {
+              title: "Asignacion",
+              link: "/Leasing/Asignacion"
+            },
+            {
+              title: "Solicitud",
+              link: "/Leasing/Solicitud"
+            },
+            {
+              title: "Mi Leasing",
+              link: "/Leasing/MiLeasing"
+            }
+          ],
           title: 'Leasing',
         },
         {
           action: 'mdi-gavel',
-          items: [            
-                    {
-                      title: "Verificaciones",
-                      link: "/Fleet/Verificaciones"
-                    },
-                    {
-                      title: "Mantenimientos",
-                      link: "/Fleet/Mantenimientos"
-                    },
-                    {
-                      title: "Pagos",
-                      link: "/Fleet/Pagos"
-                    },
-                    {
-                      title: "Tarjeta de gasolina",
-                      link: "/Fleet/TarjetaGasolina"
-                    },
-                    {
-                      title: "Consumo de gasolina",
-                      link: "/Fleet/ConsumoGasolina"
-                    }
-                ],
+          items: [
+            {
+              title: "Verificaciones",
+              link: "/Fleet/Verificaciones"
+            },
+            {
+              title: "Mantenimientos",
+              link: "/Fleet/Mantenimientos"
+            },
+            {
+              title: "Pagos",
+              link: "/Fleet/Pagos"
+            },
+            {
+              title: "Tarjeta de gasolina",
+              link: "/Fleet/TarjetaGasolina"
+            },
+            {
+              title: "Consumo de gasolina",
+              link: "/Fleet/ConsumoGasolina"
+            }
+          ],
           title: 'Multas',
         },
         {
           action: 'mdi-tag',
           items: [
-                    {
-                      title: "Formatos",
-                      link: "/Formatos/Formatos"
-                    }
-                  ],
+            {
+              title: "Formatos",
+              link: "/Formatos/Formatos"
+            },
+            {
+              title: "Carga de documentos",
+              link: "/Formatos/CargaDocumentos"
+            }
+          ],
           title: 'Formatos',
         },
         {
           action: 'mdi-folder',
           items: [
-                    {
-                      title: "Flotilla",
-                      link: "/Reportes/Flotilla"
-                    },
-                    {
-                      title: "Pagos",
-                      link: "/Reportes/Pagos"
-                    },
-                    {
-                      title: "Verificaciones",
-                      link: "/Reportes/Verificaciones"
-                    },
-                    {
-                      title: "Multas",
-                      link: "/Reportes/Multas"
-                    },
-                    {
-                      title: "Gasolina",
-                      link: "/Reportes/Gasolina"
-                    },
+            {
+              title: "Flotilla",
+              link: "/Reportes/Flotilla"
+            },
+            {
+              title: "Pagos",
+              link: "/Reportes/Pagos"
+            },
+            {
+              title: "Verificaciones",
+              link: "/Reportes/Verificaciones"
+            },
+            {
+              title: "Multas",
+              link: "/Reportes/Multas"
+            },
+            {
+              title: "Gasolina",
+              link: "/Reportes/Gasolina"
+            },
           ],
           title: 'Reportes',
         },
         {
           action: 'mdi-account',
           items: [
-                    {
-                      title: "Carga datos",
-                      link: "/Admin/cargadatos"
-                    },
-                    {
-                      title: "Pagos",
-                      link: "/Admin/CatalogoSistema"
-                    },
-                    {
-                      title: "Verificaciones",
-                      link: "/Admin/Usuarios"
-                    },
-                    {
-                      title: "Multas",
-                      link: "/Admin/Perfiles"
-                    },                   
+            {
+              title: "Carga datos",
+              link: "/Admin/cargadatos"
+            },
+            {
+              title: "Pagos",
+              link: "/Admin/CatalogoSistema"
+            },
+            {
+              title: "Verificaciones",
+              link: "/Admin/Usuarios"
+            },
+            {
+              title: "Multas",
+              link: "/Admin/Perfiles"
+            },
           ],
           title: 'Admin',
         },
       ],
       Masterlist: [
-      {
-        title: "Modificar",
-        link: "/Masterlist/Modificar"
+        {
+          title: "Modificar",
+          link: "/Masterlist/Modificar"
+        },
+        {
+          title: "Traspaso",
+          link: "/Masterlist/Traspaso"
+        },
+        {
+          title: "Prorroga",
+          link: "/Masterlist/Prorroga"
+        },
+        {
+          title: "Baja",
+          link: "/Masterlist/Baja"
+        },
+        {
+          title: "Detalle",
+          link: "/Masterlist/Detalle"
+        }
+      ],
+      Company: [{
+        title: "Asignación",
+        link: "/CompanyCar/Asignacion"
       },
-      {
-        title: "Traspaso",
-        link: "/Masterlist/Traspaso"
+        {
+          title: "Solicitud",
+          link: "/CompanyCar/Solicitud"
+        },
+        {
+          title: "Mi auto de empresa",
+          link: "/CompanyCar/MiAutoEmpresa"
+        }
+      ],
+      Leasing: [{
+        title: "Asignacion",
+        link: "/Leasing/Asignacion"
       },
-      {
-        title: "Prorroga",
-        link: "/Masterlist/Prorroga"
-      },
-      {
-        title: "Baja",
-        link: "/Masterlist/Baja"
-      },
-      {
-        title: "Detalle",
-        link: "/Masterlist/Detalle"
-      }
-    ],
-    Company: [{
-      title: "Asignación",
-      link: "/CompanyCar/Asignacion"
-    },
-      {
-        title: "Solicitud",
-        link: "/CompanyCar/Solicitud"
-      },
-      {
-        title: "Mi auto de empresa",
-        link: "/CompanyCar/MiAutoEmpresa"
-      }
-    ],
-    Leasing: [{
-      title: "Asignacion",
-      link: "/Leasing/Asignacion"
-    },
-      {
-        title: "Solicitud",
-        link: "/Leasing/Solicitud"
-      },
-      {
-        title: "Mi Leasing",
-        link: "/Leasing/MiLeasing"
-      }
-    ],
-    Fleet: [{
-      title: "Multas",
-      link: "/Fleet/Multas"
-    },
-      {
-        title: "Verificaciones",
-        link: "/Fleet/Verificaciones"
-      },
-      {
-        title: "Mantenimientos",
-        link: "/Fleet/Mantenimientos"
-      },
-      {
-        title: "Pagos",
-        link: "/Fleet/Pagos"
-      },
-      {
-        title: "Tarjeta de gasolina",
-        link: "/Fleet/TarjetaGasolina"
-      },
-      {
-        title: "Consumo de gasolina",
-        link: "/Fleet/ConsumoGasolina"
-      }
-    ],
-    Formatos: [{
-      title: "Formatos",
-      link: "/Formatos/Formatos"
-    }
-    ],
-    Reportes: [{
-      title: "Flotilla",
-      link: "/Reportes/Flotilla"
-    },
-      {
-        title: "Pagos",
-        link: "/Reportes/Pagos"
-      },
-      {
-        title: "Verificaciones",
-        link: "/Reportes/Verificaciones"
-      },
-      {
+        {
+          title: "Solicitud",
+          link: "/Leasing/Solicitud"
+        },
+        {
+          title: "Mi Leasing",
+          link: "/Leasing/MiLeasing"
+        }
+      ],
+      Fleet: [{
         title: "Multas",
-        link: "/Reportes/Multas"
+        link: "/Fleet/Multas"
       },
-      {
-        title: "Tarjeta de gasolina",
-        link: "/Reportes/TarjetaGasolina"
+        {
+          title: "Verificaciones",
+          link: "/Fleet/Verificaciones"
+        },
+        {
+          title: "Mantenimientos",
+          link: "/Fleet/Mantenimientos"
+        },
+        {
+          title: "Pagos",
+          link: "/Fleet/Pagos"
+        },
+        {
+          title: "Tarjeta de gasolina",
+          link: "/Fleet/TarjetaGasolina"
+        },
+        {
+          title: "Consumo de gasolina",
+          link: "/Fleet/ConsumoGasolina"
+        }
+      ],
+      Formatos: [{
+        title: "Formatos",
+        link: "/Formatos/Formatos"
+      }, {
+        title: "Carga de documentos",
+        link: "/Formatos/CargaDocumentos"
+      }],
+      Reportes: [{
+        title: "Flotilla",
+        link: "/Reportes/Flotilla"
       },
-      {
-        title: "Consumo de gasolina",
-        link: "/Reportes/ConsumoGasolina"
+        {
+          title: "Pagos",
+          link: "/Reportes/Pagos"
+        },
+        {
+          title: "Verificaciones",
+          link: "/Reportes/Verificaciones"
+        },
+        {
+          title: "Multas",
+          link: "/Reportes/Multas"
+        },
+        {
+          title: "Tarjeta de gasolina",
+          link: "/Reportes/TarjetaGasolina"
+        },
+        {
+          title: "Consumo de gasolina",
+          link: "/Reportes/ConsumoGasolina"
+        },
+        {
+          title: "Mix de autos",
+          link: "/Reportes/MixAutos"
+        }
+      ],
+      Admin: [{
+        title: "Carga datos",
+        link: "/Admin/cargadatos"
       },
-      {
-        title: "Mix de autos",
-        link: "/Reportes/MixAutos"
-      }
-    ],
-    Admin: [{
-      title: "Carga datos",
-      link: "/Admin/cargadatos"
-    },
-      {
-        title: "Catalogo sistemas",
-        link: "/Admin/CatalogoSistema"
-      },
-      {
-        title: "Usuarios",
-        link: "/Admin/Usuarios"
-      },
-      {
-        title: "Perfiles",
-        link: "/Admin/Perfiles"
-      }
-    ]
-
-
-
-     
-    
+        {
+          title: "Catalogo sistemas",
+          link: "/Admin/CatalogoSistema"
+        },
+        {
+          title: "Usuarios",
+          link: "/Admin/Usuarios"
+        },
+        {
+          title: "Perfiles",
+          link: "/Admin/Perfiles"
+        }
+      ]
     };
   },
-
 };
 </script>

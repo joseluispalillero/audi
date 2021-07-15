@@ -1,5 +1,6 @@
 <template>
  <div id="container-perfiles">
+   <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="perfiles">
    <!-- <div class="load">
         <span class="title"> Perfiles </span>
@@ -26,6 +27,7 @@
                    <v-spacer></v-spacer>
              <v-btn class="btn-add"  color="#f50537"  v-on:click="dialog=true,updateV=false "  >
                  <v-icon>mdi-plus</v-icon>
+                 Agregar
               </v-btn>
              <v-dialog v-model="dialogDelete" max-width="500px">
                <v-card>
@@ -95,9 +97,25 @@
 
 <script>
   import axios from 'axios'
+  import NavigationInfo from "../NavigationInfo";
 
   export default {
-    data: () => ({
+    components: {NavigationInfo},
+     data: () => ({
+      navigationInfo: [
+          {
+            text: 'Home',
+            disabled: true,
+          },
+          {
+            text: 'Admin',
+            disabled: true,
+          },
+          {
+            text: 'Perfiles',
+            disabled: false
+          },
+      ],
       dialog: false,
       search: '',
       CampoFilter: 'clave',

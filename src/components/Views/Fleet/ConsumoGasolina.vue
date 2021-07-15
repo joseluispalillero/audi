@@ -2,8 +2,12 @@
     <div id="container-usuarios">
         <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
         <div class="usuarios">
-            <div class="load">
-                <span class="title">Consumo de gasolina</span>
+            <div class="formulario">
+                <v-row>
+                    <v-col cols="12" >
+                        <span class="solicitud" >Búsqueda</span>
+                    </v-col>
+                </v-row>
             </div>
             <div class="load">
                 <v-text-field  class="search" v-model="filter"  label="Search"  outlined ></v-text-field>
@@ -21,10 +25,31 @@
                 </div>
             </div>
             <!--Tarjeta de gasolina-->
-            <div class="formulario" id="tarGas" v-show="mostrar">
+            <div class="formulario" v-show="mostrar">
                 <v-row>
                     <v-col cols="12" >
                         <span class="solicitud" >Consumo de gasolina</span>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-data-table :headers="headersTarjetas" :items="tablaTarjetas" 
+                        item-key="iutTab" :items-per-page="3" class="elevation-1">
+                        <template v-slot:top>
+                        </template>
+                        <template v-slot:item.actions="{  }">
+                            <v-icon  small  class="mr-2" @click="editItem()" > mdi-pencil  </v-icon>
+                        </template>
+                        <template v-slot:no-data>
+                            <span>No se encontraron Datos</span>
+                        </template>
+                    </v-data-table>  
+                 </v-row> 
+            </div>
+            <!--Tarjeta de gasolina-->
+            <div class="formulario" id="tarGas" v-show="mostrarTarjeta">
+                <v-row>
+                    <v-col cols="12" >
+                        <span class="solicitud" >Detalle de consumo de gasolina</span>
                     </v-col>
                 </v-row>
                 <v-row>
@@ -115,32 +140,108 @@
     </div>
 </template>
 <script>
-        
     import NavigationInfo from '../NavigationInfo.vue'
     export default {
-    components: {NavigationInfo}, 
+        components: {NavigationInfo},  
         data () {
             return {
+                mostrar: false,
+                mostrarTarjeta: false,
                 navigationInfo: [
                     {
                     text: 'Home',
                     disabled: true,
                     },
                     {
-                    text: 'Multas',
+                    text: 'Fleet',
                     disabled: true,
                     },
                     {
-                    text: 'Consumo de Gasolina',
+                    text: 'Consumo de gasolina',
                     disabled: false
-                    },
+                    }
                 ],
-                mostrar: false,
+                headersTarjetas: [
+                    {
+                    text: "IUT",
+                    align: "left",
+                    sortable: false,
+                    value: "iutTab"
+                    },
+                    { text: "Número de tarjeta", value: "numTarTab" },
+                    { text: "Número de tarjetahabiente", value: "thabienTab" },
+                    { text: "Tipo de tarjeta", value: "tipoTarTab" },
+                    { text: "Fecha de activación", value: "fechaActiv" },
+                    { text: "Folio de operacion", value: "folioAutTab" },
+                    { text: "RFC", value: "rfcTab" },
+                    { text: "Nombre del empleado", value: "nombreEmp" },
+                    { text: 'Ver consumo', value: 'actions', sortable: false }
+                ],
+                tablaTarjetas: [
+                    {
+                        id: 1,
+                        iutTab: "B0127J06IG2L",
+                        numTarTab: "4981883269349580",
+                        thabienTab: "Francisco Pinos",
+                        tipoTarTab: "ADI",
+                        fechaActiv: "11/03/2016",
+                        folioAutTab: "74532",
+                        rfcTab: "AADF900625AS7",
+                        nombreEmp: "Francisco Pinos"
+                    },
+                    {
+                        id: 2,
+                        iutTab: "B0127J06I1E4",
+                        numTarTab: "4981883269349780",
+                        thabienTab: "Laura Casas",
+                        tipoTarTab: "TIT",
+                        fechaActiv: "11/03/2016",
+                        folioAutTab: "74532",
+                        rfcTab: "EEDF780220PT7",
+                        nombreEmp: "Laura Casas"
+                    },
+                    {
+                        id: 3,
+                        iutTab: "B0127J06IQ4S",
+                        numTarTab: "498188326934986Y",
+                        thabienTab: "Javier Guerrero",
+                        tipoTarTab: "TIT",
+                        fechaActiv: "11/03/2016",
+                        folioAutTab: "74532",
+                        rfcTab: "QQER900512",
+                        nombreEmp: "Javier Guerrero"
+                    },
+                    {
+                        id: 4,
+                        iutTab: "B0127J06IA8Y",
+                        numTarTab: "4981883269349963",
+                        thabienTab: "Paola Montes",
+                        tipoTarTab: "TIT",
+                        fechaActiv: "11/03/2016",
+                        folioAutTab: "74532",
+                        rfcTab: "QQER900512",
+                        nombreEmp: "Paola Montes"
+                    },
+                    {
+                        id: 5,
+                        iutTab: "B0127J06IG4R",
+                        numTarTab: "4981883269349362",
+                        thabienTab: "Jorge Barrios",
+                        tipoTarTab: "ADI",
+                        fechaActiv: "25/08/2020",
+                        folioAutTab: "74545",
+                         rfcTab: "BBAR850809",
+                        nombreEmp: "Jorge Barrios"
+                    }
+                ]
             }
         },
         methods: {
             getseach () {
                 this.mostrar = true
+            },
+            editItem () {
+                this.mostrarTarjeta = true
             }
         }
     }

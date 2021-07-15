@@ -83,7 +83,16 @@
 
          }
          .TablesolicitudPendiente{
-         height:auto;
+            height:auto;
+
+            .title{
+              font-size: 18px !important;
+              line-height: 22px;
+              display: flex;
+              color: #000000;
+              font-weight: bold;
+              margin: 0 0 15px 0;
+            }
          }
      }
 

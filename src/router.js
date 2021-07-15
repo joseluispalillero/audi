@@ -183,7 +183,38 @@ export default new Router({
             path: '/Reportes/Pagos',
             name: 'Pagos',
             component: () => import(/* webpackChunkName "Pagos" */ './components/Views/Reportes/Pagos')
-         }
-
+         },
+        {
+            path: '/Reportes/Verificaciones',
+            name: 'Verificaciones',
+            component: () => import(/* webpackChunkName "Verificaciones" */ './components/Views/Reportes/Verificaciones')
+         },
+         {
+             path: '/Reportes/Multas',
+             name: 'Multas',
+             component: () => import(/* webpackChunkName "Multas" */ './components/Views/Reportes/Multas')
+          },
+          {
+              path: '/Reportes/TarjetaGasolina',
+              name: 'TarjetaGasolina',
+              component: () => import(/* webpackChunkName "TarjetaGasolina" */ './components/Views/Reportes/TarjetaGasolina')
+           },
+          {
+              path: '/Reportes/ConsumoGasolina',
+              name: 'ConsumoGasolina',
+              component: () => import(/* webpackChunkName "ConsumoGasolina" */ './components/Views/Reportes/ConsumoGasolina')
+           }
+           ,
+          {
+              path: '/Reportes/MixAutos',
+              name: 'MixAutos',
+              component: () => import(/* webpackChunkName "MixAutos" */ './components/Views/Reportes/MixAutos')
+           },
+           /* ====== Formatos ====== */
+           {
+              path: '/Formatos/CargaDocumentos',
+              name: 'CargaDocumentos',
+              component: () => import(/* webpackChunkName "CargaDocumentos" */ './components/Views/Formatos/CargaDocumentos')
+           }
     ]
 })

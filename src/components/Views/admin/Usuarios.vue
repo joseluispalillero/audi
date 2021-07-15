@@ -1,24 +1,12 @@
 <template>
  <div id="container-usuarios">
-   <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
+    <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="usuarios">
     <div class="load">
-         <span class="title"> Usuarios </span>
-         <!--v-text-field  class="search" v-model="filter"  label="Buscar"  :rules="searchRules"  outlined ></v-text-field>
+         <v-text-field  class="search" v-model="filter"  label="Buscar"  :rules="searchRules"  outlined ></v-text-field>
          <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
              <v-icon>mdi-magnify</v-icon>
-         </v-btn-->
-        <v-row>
-          <v-col  cols="9" sm="9"  md="9" >
-            <v-text-field  class="search" v-model="filter"  label="Search"  :rules="searchRules"  outlined ></v-text-field>
-          </v-col>
-          <v-col  cols="2" sm="2" md="2" >
-            <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
-              <v-icon>mdi-magnify</v-icon>
-              <div class="d-none d-sm-flex d-lg-none">Buscar</div>
-            </v-btn>
-          </v-col>
-        </v-row>
+         </v-btn>
          <div class="filter">
          <v-radio-group  v-model="CampoFilter"  row >
             <v-radio label="Número de empleado" value="nc" true></v-radio>
@@ -40,6 +28,7 @@
                    <v-spacer></v-spacer>
              <v-btn class="btn-add"  color="#f50537"   v-on:click="Perfiles" >
                  <v-icon>mdi-plus</v-icon>
+                 Agregar
               </v-btn>
              <v-dialog v-model="dialogDelete" max-width="500px">
                <v-card>
@@ -120,23 +109,23 @@
 
 <script>
   import axios from 'axios'
-  import NavigationInfo from '../NavigationInfo.vue'
-  
+  import NavigationInfo from "../NavigationInfo";
+
   export default {
-    components: {NavigationInfo}, 
-    data: () => ({
+    components: {NavigationInfo},
+     data: () => ({
       navigationInfo: [
           {
-          text: 'Home',
-          disabled: true,
+            text: 'Home',
+            disabled: true,
           },
           {
-          text: 'Administrador',
-          disabled: true,
+            text: 'Admin',
+            disabled: true,
           },
           {
-          text: 'Multas',
-          disabled: false
+            text: 'Usuarios',
+            disabled: false
           },
       ],
       dialog: false,

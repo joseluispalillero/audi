@@ -52,24 +52,10 @@
 </template>
 <script>
     import NavigationInfo from '../NavigationInfo.vue'
-    export default {
-    components: {NavigationInfo}, 
+    export default { 
+        components: {NavigationInfo}, 
         data () {
             return {
-                navigationInfo: [
-                    {
-                    text: 'Home',
-                    disabled: true,
-                    },
-                    {
-                    text: 'Multas',
-                    disabled: true,
-                    },
-                    {
-                    text: 'Mantenimientos',
-                    disabled: false
-                    },
-                ],
                 mostrar: false,
                 expanded: [],
                 singleExpand: false,
@@ -199,6 +185,20 @@
                     tipMant: "Mechanical Repair",
                     usrMod: "Ricardo Galvan"
                 }
+            ],
+            navigationInfo: [
+                {
+                text: 'Home',
+                disabled: true,
+                },
+                {
+                text: 'Fleet',
+                disabled: true,
+                },
+                {
+                text: 'Mantenimientos',
+                disabled: false
+                },
             ]
         }
     },

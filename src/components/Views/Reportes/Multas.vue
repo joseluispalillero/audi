@@ -2,6 +2,7 @@
     <div id="container-usuarios">
         <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
         <div class="usuarios">
+            <!--Criterios de búsqueda-->
             <div class="formulario">
                 <v-row>
                     <v-col cols="12" >
@@ -22,20 +23,9 @@
                         <v-checkbox v-model="inactivosBusq" :label="`Inactivos`"></v-checkbox>
                         <v-checkbox v-model="porAsignarBusq" :label="`Por asignar`"></v-checkbox>
                     </v-col>
-                    <v-col cols="12"  sm="2"  md="2">
-                        <v-text-field label="VIN"></v-text-field>
-                        <v-text-field label="Contrato"></v-text-field>
-                        <v-text-field label="Concepto"></v-text-field>       
-                    </v-col>
-                    <v-col cols="12"  sm="3"  md="3">
-                        <div class="load">
-                            <v-text-field label="Fecha inicio (alta)"   prepend-icon="mdi-calendar"  readonly  @click="dialogFecha = true"  ></v-text-field>
-                            <v-text-field label="Fecha fin (baja)"   prepend-icon="mdi-calendar"  readonly  @click="dialogFecha = true"  ></v-text-field>
-                        </div>
-                    </v-col>
                     <v-col cols="12"  sm="3"  md="3">
                         <v-card-text>
-                            Fecha factura
+                            Periodo infracción
                         </v-card-text>
                         <div class="load">
                             <v-text-field label="Fecha inicio"   prepend-icon="mdi-calendar"  readonly  @click="dialogFecha = true"  ></v-text-field>
@@ -43,7 +33,8 @@
                         </div>
                     </v-col>
                     <v-col cols="12"  sm="2"  md="2">
-                        <v-checkbox v-model="historicoBusq" :label="`Histórico`"></v-checkbox>
+                        <v-text-field label="VIN"></v-text-field>    
+                         <v-select :items="['Pagado', 'Adeudo']" label="Estatus infracción"></v-select> 
                     </v-col>
                 </v-row>
                 <v-row>
@@ -68,7 +59,7 @@
             <div class="formulario" v-show="mostrar">
                 <v-row>
                     <v-col cols="12" >
-                        <span class="solicitud" >Reporte Pagos</span>
+                        <span class="solicitud" >Reporte multas</span>
                     </v-col>
                 </v-row>
                 <v-row>
@@ -78,12 +69,12 @@
                     </v-data-table>    
                 </v-row>
             </div>
-             <div class="formulario" v-show="mostrar">
+            <div class="formulario" v-show="mostrar">
                  <v-row>
                     <v-col  cols="12" sm="2"  md="2" ></v-col>
                     <v-col  cols="12" sm="3"  md="3" >
                         <v-btn icon href="https://eqpro.es/wp-content/uploads/2018/11/Ejemplo.pdf" target="_blank">
-                            Descargar Reporte de pagos
+                            Descargar Reporte de multas
                         </v-btn>
                     </v-col>
                 </v-row>
@@ -93,7 +84,7 @@
 </template>
 <script>
     import NavigationInfo from '../NavigationInfo.vue'
-    export default { 
+    export default {
         components: {NavigationInfo}, 
         data () {
             return {
@@ -106,100 +97,55 @@
                 sortable: false,
                 value: "contrato"
                 },
-                { text: "Documento", value: "documento" },
-                { text: "Concepto", value: "concepto" },
-                { text: "VIN", value: "vin" },
+                { text: "Folio infraccion", value: "folioInf" },
+                { text: "Fecha infraccion", value: "fechaInf" },
+                { text: "Hora infraccion", value: "horaInf" },
+                { text: "Importe", value: "importe" },
+                { text: "Placa", value: "placa" },
                 { text: "Nombre del empleado", value: "nombreEmp" },
                 { text: "Flotilla", value: "flotilla" },
-                { text: "Est. flotilla", value: "estFlotilla" },
+                { text: "Estatus infracción", value: "estInf" },
                 { text: "Usuario de modificación", value: "usrMod" }
             ],
             tablaReporte: [
                 {
                     id: 1,
-                    modelo: "Q5 interno",
-                    documento: "74589632",
-                    concepto: "Pago mensualidad",
-                    vin: "WAUZZZFY0H2030210",
-                    iniCont: "01/04/2017",
-                    finCont: "31/12/9999",
-                    fecha: "05/08/2016",
-                    capAdi: "5,412.00",
-                    intAdi: "365.00",
-                    estAsig: "N/A",
-                    fechDev: "N/A",
-                    contrato: "N/A",
-                    plazo: "12",
-                    renta: "N/A",
-                    rentaTol: "N/A",
-                    tipoTerm: "Terminacion normal",
-                    tipoCierre: "Perdida total",
-                    numEmp: "7452",
-                    nombreEmp: "José Pérez Pérez",
-                    centroCost: "6314200",
-                    tipoEmp: "Normal",
                     flotilla: "Service Car",
-                    estFlotilla: "Incativo",
-                    usrMod: "Gerardo Robles Castillo"
+                    usrMod: "Gerardo Robles Castillo",
+                    contrato: "51856249",
+                    folioInf: "12194097",
+                    fechaInf: "24/06/2020",
+                    horaInf: "17:47:53",
+                    importe: "$456.00",
+                    placa: "UBH4591",
+                    nombreEmp: "José Pérez",
+                    estInf: "Pagado"
                 },
                  {
                     id: 2,
-                    modelo: "Q3",
-                    documento: "74589641",
-                    concepto: "Pago mensualidad",
-                    vin: "WAUDFA8U3ER051005",
-                    iniCont: "2014/04/08",
-                    finCont: "2015/04/08",
-                    fecha: "05/08/2016",
-                    capAdi: "5,412.00",
-                    intAdi: "365.00",
-                    estAsig: "N/A",
-                    plazo: "12",
-                    contrato: "50825888",
-                    activo: "N/A",
-                    precio: "423364.43",
-                    renta: "14554.19",
-                    rentaTol: "14554.19",
-                    estatusVwfs: "CERRADO",
-                    fechEnt: "N/A",
-                    fechDev: "N/A",
-                    tipoTerm: "Terminacion normal",
-                    tipoCierre: "Devolucion",
-                    numEmp: "400164",
-                    nombreEmp: "Roberto Palacios Rincon",
-                    centroCost: "6314200",
-                    tipoEmp: "Local",
                     flotilla: "Company car",
-                    estFlotilla: "Activo",
-                    usrMod: "Gerardo Robles Castillo"
+                    usrMod: "Gerardo Robles Castillo",
+                    contrato: "51856278",
+                    folioInf: "12194098",
+                    fechaInf: "12/08/2020",
+                    horaInf: "11:47:50",
+                    importe: "$456.00",
+                    placa: "UBH4786",
+                    nombreEmp: "Roberto Saldivar",
+                    estInf: "Pagado"
                 },
                  {
                     id: 3,
-                    modelo: "A4",
-                    documento: "74589012",
-                    concepto: "Pago mensualidad",
-                    vin: "WAUAFC8K4EN021113",
-                    iniCont: "2014/07/08",
-                    finCont: "2015/06/22",
-                    fecha: "05/08/2016",
-                    capAdi: "5,412.00",
-                    intAdi: "365.00",
-                    estAsig: "N/A",
-                    plazo: "12",
-                    contrato: "50859581",
-                    activo: "N/A",
-                    renta: "15920.62",
-                    rentaTol: "15920.62",
-                    fechDev: "N/A",
-                    tipoTerm: "Terminacion anticipada",
-                    tipoCierre: "Devolucion",
-                    numEmp: "400828",
-                    nombreEmp: "Julio Arebalo Rojas",
-                    centroCost: "6390080",
-                    tipoEmp: "Impat",
                     flotilla: "Company Car",
-                    estFlotilla: "Activo",
-                    usrMod: "Gerardo Robles Castillo"
+                    usrMod: "Gerardo Robles Castillo",
+                     contrato: "23856278",
+                    folioInf: "90194041",
+                    fechaInf: "25/03/2021",
+                    horaInf: "09:02:50",
+                    importe: "$456.00",
+                    placa: "E85RPA",
+                    nombreEmp: "Carlos Pineda",
+                    estInf: "Pagado"
                 }
             ],
             navigationInfo: [
@@ -208,11 +154,11 @@
                 disabled: true,
                 },
                 {
-                text: 'Reportes',
+                text: 'Reporte',
                 disabled: true,
                 },
                 {
-                text: 'Pagos',
+                text: 'Multas',
                 disabled: false
                 }
             ]

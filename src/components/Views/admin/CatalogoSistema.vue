@@ -7,7 +7,7 @@
     <v-alert type="error" v-model="alertError" dismissible  elevation="2"  > Validar archivo Cargado </v-alert>
 
     <div class="load">
-        <span class="title"> Cargar archivo de Catálogo del sistema </span>
+        <span class="title"> Carga masiva</span>
          <v-file-input label="Cargar Archivo" outlined v-model="file" id="file"  accept=".xlsx"   dense ></v-file-input>
          <v-btn class="btn-load"  color="#f50537"  v-on:click="onUpload"  >   Cargar </v-btn>
     </div>
@@ -15,7 +15,7 @@
     <v-divider class="divider-form" ></v-divider>
 
    <div class="load-seach">
-        <span class="title">Catálogo del sistema</span>
+        <span class="title">Carga individual</span>
         <v-text-field  class="search" v-model="filter"  label="Buscar"  :rules="searchRules"  outlined ></v-text-field>
         <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
             <v-icon>mdi-magnify</v-icon>
@@ -41,6 +41,7 @@
                        <v-spacer></v-spacer>
                  <v-btn class="btn-add"  color="#f50537"   v-on:click="dialog = true" >
                      <v-icon>mdi-plus</v-icon>
+                     Agregar
                   </v-btn>
                  <v-dialog v-model="dialogDelete" max-width="500px">
                    <v-card>
@@ -131,23 +132,23 @@
   import axios from 'axios'
   import moment from 'moment'
   import XLSX from "xlsx"
+  import NavigationInfo from "../NavigationInfo";
 
-  import NavigationInfo from '../NavigationInfo.vue'
   export default {
-    components: {NavigationInfo}, 
-    data: () => ({
+    components: {NavigationInfo},
+     data: () => ({
       navigationInfo: [
           {
-          text: 'Home',
-          disabled: true,
+            text: 'Home',
+            disabled: true,
           },
           {
-          text: 'Administrador',
-          disabled: true,
+            text: 'Admin',
+            disabled: true,
           },
           {
-          text: 'Pagos',
-          disabled: false
+            text: 'Catálogo sistemas',
+            disabled: false
           },
       ],
       dialog: false,
