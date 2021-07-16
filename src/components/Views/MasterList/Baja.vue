@@ -4,11 +4,7 @@
     <div class="baja">
       <div class="load">
         <v-col xs="10" sm="10" md="12" cols="12">
-          <v-row>
-            <v-col cols="12">
-              <span class="title">Búsqueda</span>
-            </v-col>
-          </v-row>
+          <span class="title">Búsqueda</span>
           <v-row>
             <v-col xs="10" sm="8" md="10" cols="8">
               <v-text-field class="search" v-model="filter" label="Search" :rules="searchRules" outlined></v-text-field>
