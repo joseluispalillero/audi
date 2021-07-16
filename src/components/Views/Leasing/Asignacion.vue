@@ -43,7 +43,7 @@
             <template v-slot:top>
             </template>
             <template v-slot:item.actions="{  }">
-              <v-icon small class="mr-2" @click="scrollToEnd(),editItem()"> mdi-pencil</v-icon>
+              <v-icon small class="mr-2" @click="editItem()"> mdi-pencil</v-icon>
             </template>
           </v-data-table>
         </v-row>
@@ -83,7 +83,7 @@
         </v-row>
       </div>
       <!--Modelos disponibles-->
-      <div class="formulario" v-show="mostrarSolicitud">
+      <div class="formulario" v-show="mostrarSolicitud" id="mostrarSolicitud">
         <v-row>
           <v-col cols="12">
             <span class="solicitud">Módelos disponibles</span>
@@ -367,11 +367,15 @@ export default {
       this.dialogGuia = false
     },
     editItem() {
+      let $this=this;
       this.mostrarSolicitud = true
+      setTimeout(function(){
+          $this.scrollToEnd();
+      }, 500);
     },
     scrollToEnd: function() {    	
         console.log("entre a scroll")
-        var messages = this.$el.querySelector('#tarGas')
+        var messages = this.$el.querySelector('#mostrarSolicitud')
         messages.scrollIntoView({block: "end", behavior: "smooth"});
                 
     }
