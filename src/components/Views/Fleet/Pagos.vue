@@ -9,25 +9,29 @@
           </v-col>
         </v-row>
       </div>
-      <div class="load">
-        <v-row>
-          <v-col cols="9" sm="9" md="9">
-            <v-text-field class="search" v-model="filter" label="Search" outlined></v-text-field>
+       <div class="load">
+        <v-row>        
+          <v-col xs="10" sm="10" md="12" cols="12">
+            <v-row>
+              <v-col xs="10" sm="8" md="10" cols="8">
+                <v-text-field v-model="filter" label="Search" outlined></v-text-field>
+              </v-col>
+              <v-col xs="2" sm="2" md="2" cols="2">
+                <v-btn class="btn-load" color="#f50537" v-on:click="getseach()">
+                <v-icon>mdi-magnify</v-icon>
+                <div class="d-none d-sm-flex">Buscar</div>
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-col>
-          <v-col cols="2" sm="2" md="2">
-            <v-btn class="btn-load" color="#f50537" v-on:click="getseach()">
-              <v-icon>mdi-magnify</v-icon>
-              <div class="d-none d-sm-flex d-lg-none">Buscar</div>
-            </v-btn>
-          </v-col>
+          <div class="filter">
+            <v-radio-group v-model="CampoFilter" row>
+              <v-radio label="VIN" value="busqVin" true></v-radio>
+              <v-radio label="Placa" value="busqPlaca" true></v-radio>
+              <v-radio label="Número de contrato" value="busqNunContrato" true></v-radio>
+            </v-radio-group>
+          </div>
         </v-row>
-        <div class="filter">
-          <v-radio-group v-model="CampoFilter" row>
-            <v-radio label="VIN" value="busqVin" true></v-radio>
-            <v-radio label="Placa" value="busqPlaca" true></v-radio>
-            <v-radio label="Número de contrato" value="busqNunContrato" true></v-radio>
-          </v-radio-group>
-        </div>
       </div>
       <!--Datos del auto-->
       <div class="formulario" id="seccionAuto" v-show="mostrar">

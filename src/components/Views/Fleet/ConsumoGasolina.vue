@@ -10,10 +10,20 @@
                 </v-row>
             </div>
             <div class="load">
-                <v-text-field  class="search" v-model="filter"  label="Search"  outlined ></v-text-field>
-                <v-btn class="btn-load"  color="#f50537" v-on:click="getseach()">
-                    <v-icon>mdi-magnify</v-icon>
-                </v-btn>
+              <v-row>        
+                <v-col xs="10" sm="10" md="12" cols="12">
+                    <v-row>
+                    <v-col xs="10" sm="8" md="10" cols="8">
+                        <v-text-field v-model="filter"  label="Search"  outlined ></v-text-field>
+                    </v-col>
+                    <v-col xs="2" sm="2" md="2" cols="2">
+                        <v-btn class="btn-load"  color="#f50537" v-on:click="getseach()">
+                        <v-icon>mdi-magnify</v-icon>
+                        <div class="d-none d-sm-flex">Buscar</div>
+                        </v-btn>
+                    </v-col>
+                    </v-row>
+                </v-col>
                 <div class="filter">
                     <v-radio-group  v-model="CampoFilter"  row >
                         <v-radio label="Nombre de la tarjeta" value="busqNomTarjeta" true></v-radio>
@@ -23,6 +33,7 @@
                         <v-radio   label="IUT" value="busqIut" ></v-radio>
                     </v-radio-group>
                 </div>
+              </v-row>
             </div>
             <!--Tarjeta de gasolina-->
             <div class="formulario" v-show="mostrar">
