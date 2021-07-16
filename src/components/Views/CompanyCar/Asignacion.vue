@@ -5,23 +5,34 @@
       <div class="load">
         <span class="title"> Solicitud  </span>
         <v-row>
-          <v-col cols="9" sm="9" md="9">
-            <v-text-field class="search" v-model="filter" label="Buscar" :rules="searchRules" outlined></v-text-field>
-          </v-col>
-          <v-col cols="2" sm="2" md="2">
-            <v-btn class="btn-load" color="#f50537" v-on:click="getseach(CampoFilter,filter)">
-              <v-icon>mdi-magnify</v-icon>
-              <div class="d-none d-sm-flex d-lg-none">Buscar</div>
-            </v-btn>
+          <v-col xs="10" sm="10" md="12" cols="12">
+            <v-row>
+              <v-col xs="10" sm="8" md="10" cols="8">
+                <v-text-field v-model="filter" label="Buscar" :rules="searchRules" outlined></v-text-field>
+              </v-col>
+              <v-col xs="2" sm="2" md="2" cols="2">
+                <v-btn class="btn-load" color="#f50537" v-on:click="getseach(CampoFilter,filter)">
+                  <v-icon>mdi-magnify</v-icon>
+                  <div class="d-none d-sm-flex">Buscar</div>
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
         <div class="filter">
-          <v-radio-group v-model="CampoFilter" row>
-            <v-radio label="Número de empleado" value="nc" true></v-radio>
-            <v-radio label="Nombre de empleado" value="nombreUsuario"></v-radio>
-          </v-radio-group>
+          <v-form>
+            <v-row>
+              <v-col cols="12">
+                <v-radio-group v-model="CampoFilter" row>
+                  <v-radio label="Número de empleado" value="nc" true></v-radio>
+                  <v-radio label="Nombre de empleado" value="nombreUsuario"></v-radio>
+                </v-radio-group>
+              </v-col>
+            </v-row>
+          </v-form>
         </div>
       </div>
+
 
       <div class="TablesolicitudPendiente">
         <span class="title"> Solicitudes  </span>

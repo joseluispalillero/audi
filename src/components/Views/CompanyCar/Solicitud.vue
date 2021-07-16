@@ -4,21 +4,31 @@
     <div class="usuarios">
       <div class="load">
         <v-row>
-          <v-col cols="9" sm="9" md="9">
-            <v-text-field class="search" v-model="filter" label="Buscar" :rules="searchRules" outlined></v-text-field>
-          </v-col>
-          <v-col cols="2" sm="2" md="2">
-            <v-btn class="btn-load" color="#f50537" v-on:click="getseach(CampoFilter,filter)">
-              <v-icon>mdi-magnify</v-icon>
-              <div class="d-none d-sm-flex d-lg-none">Buscar</div>
-            </v-btn>
+          <v-col xs="10" sm="10" md="12" cols="12">
+            <v-row>
+              <v-col xs="10" sm="8" md="10" cols="8">
+                <v-text-field v-model="filter" label="Buscar" :rules="searchRules" outlined></v-text-field>
+              </v-col>
+              <v-col xs="2" sm="2" md="2" cols="2">
+                <v-btn class="btn-load" color="#f50537" v-on:click="getseach(CampoFilter,filter)">
+                  <v-icon>mdi-magnify</v-icon>
+                  <div class="d-none d-sm-flex">Buscar</div>
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
         <div class="filter">
-          <v-radio-group v-model="CampoFilter" row>
-            <v-radio label="Número de empleado" value="nc" true></v-radio>
-            <v-radio label="Nombre de empleado" value="nombreUsuario"></v-radio>
-          </v-radio-group>
+          <v-form>
+            <v-row>
+              <v-col cols="12">
+                <v-radio-group v-model="CampoFilter" row>
+                  <v-radio label="Número de empleado" value="nc" true></v-radio>
+                  <v-radio label="Nombre de empleado" value="nombreUsuario"></v-radio>
+                </v-radio-group>
+              </v-col>
+            </v-row>
+          </v-form>
         </div>
       </div>
       <div class="formularioLectura">
@@ -48,42 +58,42 @@
       <div class="formulario">
         <v-form v-model="valid">
           <v-row>
-            <v-col cols="4">
+             <v-col md="4" cols="12">
               <v-text-field ref="licencia" v-model="licencia" :rules="licenciaRules"
                             label="Número de licencia de conducir*" required outlined></v-text-field>
             </v-col>
-            <v-col cols="4">
+            <v-col md="4" cols="12">
               <v-text-field label="Fecha de vencimiento de licencia de conducir" required :rules="dateFechaRules"
                             v-model="FechaVencimiento" outlined prepend-icon="mdi-calendar" readonly
                             @click="dialogFecha = true"></v-text-field>
             </v-col>
-            <v-col cols="4">
+             <v-col md="4" cols="12">
               <v-checkbox label="Licencia Permanente" v-model="Permanente" v-on:click="DateLicencia"></v-checkbox>
             </v-col>
-            <v-col cols="12">
+            <v-col md="12" cols="12">
               <span class="solicitud">Solicitud de modelo</span>
             </v-col>
-            <v-col cols="4">
+            <v-col md="4" cols="12">
               <span class="A1primera">Primer auto*</span>
             </v-col>
-            <v-col cols="4">
+            <v-col md="4" cols="12">
               <v-select label="Primera opción" :items="A1Primera" required :rules="A1PrimeraRules"
                         v-model="A1PrimeraOpcion" outlined>
               </v-select>
             </v-col>
-            <v-col cols="4">
+            <v-col md="4" cols="12">
               <v-select label="Segunda opción" :items="A1Segunda" required :rules="A1SegundaRules"
                         v-model="A1SegundaOpcion" outlined>
               </v-select>
             </v-col>
-            <v-col cols="4" v-show="tipoGrupoPersona">
+            <v-col md="4" cols="12" v-show="tipoGrupoPersona">
               <span class="A1primera">Segundo auto</span>
             </v-col>
-            <v-col cols="4" v-show="tipoGrupoPersona">
+            <v-col md="4" cols="12" v-show="tipoGrupoPersona">
               <v-select label="Primera opción" :items="A2Primera" v-model="A2PrimeraOpcion" outlined>
               </v-select>
             </v-col>
-            <v-col cols="4" v-show="tipoGrupoPersona">
+            <v-col md="4" cols="12" v-show="tipoGrupoPersona">
               <v-select label="Segunda opción" :items="A2Segunda" v-model="A2SegundaOpcion" outlined>
               </v-select>
             </v-col>
