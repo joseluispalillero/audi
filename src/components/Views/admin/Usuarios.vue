@@ -3,16 +3,27 @@
     <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="usuarios">
     <div class="load">
-         <v-text-field  class="search" v-model="filter"  label="Buscar"  :rules="searchRules"  outlined ></v-text-field>
-         <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
-             <v-icon>mdi-magnify</v-icon>
-         </v-btn>
-         <div class="filter">
+      <v-row>        
+        <v-col xs="10" sm="10" md="12" cols="10">
+          <v-row>
+            <v-col xs="10" sm="7" md="10" cols="7">
+                 <v-text-field v-model="filter"  label="Buscar"  :rules="searchRules"  outlined ></v-text-field>
+            </v-col>
+            <v-col xs="2" sm="2" md="1" cols="2">
+               <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
+              <v-icon>mdi-magnify</v-icon>
+              <div class="d-none d-sm-flex">Buscar</div>
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-col>
+        <div class="filter">
          <v-radio-group  v-model="CampoFilter"  row >
             <v-radio label="Número de empleado" value="nc" true></v-radio>
             <v-radio   label="Nombre" value="nombreUsuario" ></v-radio>
          </v-radio-group>
          </div>
+      </v-row>
     </div>
     <div class="formulario">
       <v-data-table  :headers="headers" :items="desserts" :search="search" sort-by="empleado"  class="elevation-1" >
