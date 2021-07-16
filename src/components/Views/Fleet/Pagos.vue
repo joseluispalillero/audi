@@ -65,8 +65,8 @@
                                 item-key="histContrato" :items-per-page="3" class="elevation-1">
                     <template v-slot:top>
                     </template>
-                    <template v-slot:item.actions="{  }">
-                    <v-icon small class="mr-2" @click="editItem()"> mdi-pencil</v-icon>
+                    <template v-slot:item.actions="{  }" >
+                    <v-icon small class="mr-2" @click="scrollToEnd(),editItem()"> mdi-pencil</v-icon>
                     </template>
                     <template v-slot:no-data>
                     <span>No se encontraron Datos</span>
@@ -263,6 +263,12 @@ export default {
     },
     editItem() {
       this.mostrarPagos = true
+    },
+    scrollToEnd: function() {    	
+        console.log("entre a scroll")
+        var messages = this.$el.querySelector('#historicoPagosByContratos')
+        messages.scrollIntoView(false);
+                
     }
   }
 }
