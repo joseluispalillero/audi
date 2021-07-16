@@ -13,11 +13,13 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-data-table :headers="headersProximasVencer" :items="tablaProximasVencer" item-key="vinPV"
-                        :items-per-page="3" class="elevation-1">
-            <template v-slot:top>
-            </template>
-          </v-data-table>
+            <v-col cols="12">
+                <v-data-table :headers="headersProximasVencer" :items="tablaProximasVencer" item-key="vinPV"
+                                :items-per-page="3" class="elevation-1">
+                    <template v-slot:top>
+                    </template>
+                </v-data-table>
+          </v-col>
         </v-row>
       </div>
       <br/><br/><br/>

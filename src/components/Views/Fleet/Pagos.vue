@@ -60,17 +60,19 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-data-table :headers="headersHistCont" :items="tablaHistContratos"
-                        item-key="histContrato" :items-per-page="3" class="elevation-1">
-            <template v-slot:top>
-            </template>
-            <template v-slot:item.actions="{  }">
-              <v-icon small class="mr-2" @click="editItem()"> mdi-pencil</v-icon>
-            </template>
-            <template v-slot:no-data>
-              <span>No se encontraron Datos</span>
-            </template>
-          </v-data-table>
+            <v-col cols="12">
+                <v-data-table :headers="headersHistCont" :items="tablaHistContratos"
+                                item-key="histContrato" :items-per-page="3" class="elevation-1">
+                    <template v-slot:top>
+                    </template>
+                    <template v-slot:item.actions="{  }">
+                    <v-icon small class="mr-2" @click="editItem()"> mdi-pencil</v-icon>
+                    </template>
+                    <template v-slot:no-data>
+                    <span>No se encontraron Datos</span>
+                    </template>
+                </v-data-table>
+            </v-col>
         </v-row>
       </div>
       <!--Area de mensajes-->
