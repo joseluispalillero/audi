@@ -43,7 +43,7 @@
             <template v-slot:top>
             </template>
             <template v-slot:item.actions="{  }">
-              <v-icon small class="mr-2" @click="editItem()"> mdi-pencil</v-icon>
+              <v-icon small class="mr-2" @click="scrollToEnd(),editItem()"> mdi-pencil</v-icon>
             </template>
           </v-data-table>
         </v-row>
@@ -368,6 +368,12 @@ export default {
     },
     editItem() {
       this.mostrarSolicitud = true
+    },
+    scrollToEnd: function() {    	
+        console.log("entre a scroll")
+        var messages = this.$el.querySelector('#tarGas')
+        messages.scrollIntoView({block: "end", behavior: "smooth"});
+                
     }
   }
 }

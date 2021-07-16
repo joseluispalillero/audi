@@ -229,7 +229,7 @@ export default {
     scrollToEnd: function() {    	
         console.log("entre a scroll")
         var messages = this.$el.querySelector('#tarGas')
-        messages.scrollIntoView(false);
+        messages.scrollIntoView({block: "end", behavior: "smooth"});
                 
     }
   }

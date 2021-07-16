@@ -271,7 +271,7 @@ export default {
     scrollToEnd: function() {    	
         console.log("entre a scroll")
         var messages = this.$el.querySelector('#historicoPagosByContratos')
-        messages.scrollIntoView(false);
+        messages.scrollIntoView({block: "end", behavior: "smooth"});
                 
     }
   }

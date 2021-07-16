@@ -41,7 +41,7 @@
 
           </template>
           <template v-slot:item.actions="{ item }">
-            <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil</v-icon>
+            <v-icon small class="mr-2" @click="scrollToEnd(),editItem(item)"> mdi-pencil</v-icon>
           </template>
           <template v-slot:no-data>
             <span>No se encontraron Datos</span>
@@ -370,6 +370,12 @@ export default {
     },
     Cars() {
       this.initializeCars();
+    },
+    scrollToEnd: function() {    	
+        console.log("entre a scroll")
+        var messages = this.$el.querySelector('.formularioLectura')
+        messages.scrollIntoView({block: "end", behavior: "smooth"});
+                
     }
   }
 }
