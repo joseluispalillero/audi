@@ -3,23 +3,25 @@
     <NavigationInfo :navigationInfo="navigationInfo"></NavigationInfo>
     <div class="baja">
       <div class="load">
-        <v-row>
-          <v-col class="col-xs-12 col-sm-10 col-md-10" cols="12">
-            <v-row>
-              <v-col class="col-xs-9 col-sm-9 col-md-9" cols="9">
-                <v-text-field class="search" v-model="filter" label="Search" :rules="searchRules"
-                              outlined></v-text-field>
-              </v-col>
-              <v-col class="col-xs-2 col-sm-2 col-md-2" cols="2">
-                <v-btn class="btn-load" color="#f50537" label="Numero de Vin" v-on:click="getseach(CampoFilter,filter)">
-                  <v-icon>mdi-magnify</v-icon>
-                  <div class="d-none d-sm-flex d-lg-none">Buscar</div>
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-col>
-          <v-divider class="divider-form"></v-divider>
-        </v-row>
+        <v-col xs="10" sm="10" md="12" cols="12">
+          <v-row>
+            <v-col cols="12">
+              <span class="title">Búsqueda</span>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col xs="10" sm="8" md="10" cols="8">
+              <v-text-field class="search" v-model="filter" label="Search" :rules="searchRules" outlined></v-text-field>
+            </v-col>
+            <v-col xs="2" sm="2" md="2" cols="2">
+              <v-btn class="btn-load" color="#f50537" label="Numero de Vin" v-on:click="getseach(CampoFilter,filter)">
+                <v-icon>mdi-magnify</v-icon>
+                <div class="d-none d-sm-flex">Buscar</div>
+              </v-btn>
+            </v-col>
+            <v-divider class="divider-form"></v-divider>
+          </v-row>
+        </v-col>
         <div class="filter">
           <v-form>
             <v-row>
