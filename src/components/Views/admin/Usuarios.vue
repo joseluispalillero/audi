@@ -4,12 +4,12 @@
     <div class="usuarios">
     <div class="load">
       <v-row>        
-        <v-col xs="10" sm="10" md="12" cols="10">
+        <v-col xs="10" sm="10" md="12" cols="12">
           <v-row>
-            <v-col xs="10" sm="7" md="10" cols="7">
+            <v-col xs="10" sm="8" md="10" cols="8">
                  <v-text-field v-model="filter"  label="Buscar"  :rules="searchRules"  outlined ></v-text-field>
             </v-col>
-            <v-col xs="2" sm="2" md="1" cols="2">
+            <v-col xs="2" sm="2" md="2" cols="2">
                <v-btn class="btn-load"  color="#f50537"  v-on:click="getseach(CampoFilter,filter)" >
               <v-icon>mdi-magnify</v-icon>
               <div class="d-none d-sm-flex">Buscar</div>
